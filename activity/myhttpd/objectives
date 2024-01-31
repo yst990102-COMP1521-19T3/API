@@ -1,0 +1,4 @@
+objectives = [
+	'to practice working with sockets',
+	'to learn about HTTP'
+]

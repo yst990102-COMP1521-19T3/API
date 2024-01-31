@@ -1,0 +1,41 @@
+<p>
+In the files for this lab,
+you have been given <code>grade.s</code>,
+a MIPS assembler program
+which reads a number
+and always prints <strong>FL</strong>:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f grade.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a mark: <kbd>100</kbd>
+FL
+</pre>
+<p>
+Add code to <code>grade.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.cp/grade.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f grade.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a mark: <kbd>42</kbd>
+FL
+<kbd is="sh">1521 spim -f grade.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a mark: <kbd>72</kbd>
+CR
+<kbd is="sh">1521 spim -f grade.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a mark: <kbd>89</kbd>
+HD
+</pre>
+<aside class="hint">
+<p>
+Make sure you understand the <a href="{{url_root}}code/mips_control/#odd_even.s">odd_even.s</a> lecture example.
+</p></aside>
+</p></p></p>

@@ -1,0 +1,14 @@
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+command=1521 spim -f line_char.s
+files=line_char.s
+
+
+0 stdin="good bye cruel world\n0\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: g\n"
+1 stdin="good bye cruel world\n7\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: e\n"
+2 stdin="good bye cruel world\n11\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: u\n"
+3 stdin="good bye cruel world\n9\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: c\n"
+4 stdin="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\n50\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: y\n"
+5 stdin="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\n100\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: w\n"

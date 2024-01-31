@@ -1,0 +1,79 @@
+<p>
+Write a C program, <code>last_line</code>,
+which takes one argument, a filename,
+and which should print the last line of that file.
+For example:
+
+<pre is="tty">
+<kbd is="sh">dcc last_line.c -o last_line</kbd>
+<kbd is="sh">echo -e 'hello\ngood bye' &gt;hello_goodbye.txt</kbd>
+<kbd is="sh">cat hello_goodbye.txt</kbd>
+hello
+good bye
+<kbd is="sh">./last_line hello_goodbye.txt</kbd>
+good bye
+</pre>
+<p>
+You program should not assume the last byte of the file is a newline character.
+
+<pre is="tty">
+<kbd is="sh">echo -n -e 'hello\ngoodbye' &gt;no_last_newline.txt</kbd>
+hello
+goodbye<kbd is="sh">./last_line no_last_newline.txt</kbd>
+goodbye<kbd is="sh"></kbd>
+</pre>
+<p>
+Your program should handle extremely large files.
+It should not read the entire file.
+As this is a challenge exercise,
+marks will not be awarded for programs which read the entire file.
+<p>
+For example, it should be able to print the last line of a one-terabyte file:
+
+<pre is="tty">
+<kbd is="sh">echo -e 'Hello\nGood Bye'|dd status=none seek=1T bs=1 of=/tmp/gigantic_file$$</kbd>
+<kbd is="sh">ls -l /tmp/gigantic_file$$</kbd>
+-rw-r--r-- 1 z5555555 z5555555 1099511627791 Oct 26 17:27 gigantic_file12345
+<kbd is="sh">./last_line /tmp/gigantic_file$$</kbd>
+Good Bye
+</pre>
+<p>
+The gigantic file created above is a <a href="https://en.wikipedia.org/wiki/Sparse_file">sparse file</a>,
+consisting almost entirely of zero bytes:
+it uses little actual disk space,
+but, to be safe, remove it when you finish the exercise.
+<p>
+The commands above create the sparse file in /tmp to avoid it accidentally being backed up or otherwise copied.
+<p>
+Sparse files can create problems
+if they are accidentally copied by a program
+which doesn't handle them specially —
+and most programs don't.
+<p>
+BTW the <em>$$</em> in the above command is replaced by the shell process id.  This is because /tmp is shared so we'd like to use a filename that is (more or less) unique.
+
+<aside class="note">
+<p>
+Assume line are separated only by the byte corresponding to <code>'\n'</code>.
+<p>
+Assume bytes can contain any value;
+you cannot assume bytes are ASCII values.
+</p></p></aside>
+<aside class="hint">
+Use <cite>fseek(3)</cite> and <cite>fgetc(3)</cite>.
+</aside>
+<aside class="note">
+<p>
+If the last byte of file is not <code>'\n'</code>,
+you should print all bytes after the last <code>'\n'</code> byte.
+<p>
+If there is no <code>'\n'</code> byte, you should print the entire file.
+<p>
+If the last byte of the file is <code>'\n'</code>,
+you should print every byte
+after the previous (second last <code>'\n'</code>) <code>'\n'</code> byte.
+<p>
+If there is no previous <code>'\n'</code> byte,
+you should print the entire file.
+</p></p></p></p></aside>
+</p></p></p></p></p></p></p></p>

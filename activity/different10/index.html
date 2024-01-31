@@ -1,0 +1,50 @@
+You have been given <a href="{{activity_url}}files.cp/different10.s"><code>different10.s</code></a>,
+a MIPS assembler program that reads 10 numbers into an array.
+
+Add code to <code>different10.s</code> to make it equivalent to this C program:
+
+{{ include_code("files.ln/different10.c") }}
+
+<p>
+In other words make it stop when 10 different numbers have been read and print
+a message including
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f different10.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>11</kbd>
+Enter a number: <kbd>12</kbd>
+Enter a number: <kbd>13</kbd>
+Enter a number: <kbd>14</kbd>
+Enter a number: <kbd>15</kbd>
+Enter a number: <kbd>16</kbd>
+Enter a number: <kbd>17</kbd>
+Enter a number: <kbd>18</kbd>
+Enter a number: <kbd>19</kbd>
+Enter a number: <kbd>20</kbd>
+10th different number was: 20
+<kbd is="sh">1521 spim -f different10.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>11</kbd>
+Enter a number: <kbd>11</kbd>
+Enter a number: <kbd>12</kbd>
+Enter a number: <kbd>11</kbd>
+Enter a number: <kbd>13</kbd>
+Enter a number: <kbd>14</kbd>
+Enter a number: <kbd>13</kbd>
+Enter a number: <kbd>14</kbd>
+Enter a number: <kbd>15</kbd>
+Enter a number: <kbd>16</kbd>
+Enter a number: <kbd>29</kbd>
+Enter a number: <kbd>19</kbd>
+Enter a number: <kbd>18</kbd>
+Enter a number: <kbd>55</kbd>
+10th different number was: 55
+</pre>
+<aside class="note">
+<p>
+You can assume that a 10 different numbers will always be entered.
+</p></aside>
+</p></p>

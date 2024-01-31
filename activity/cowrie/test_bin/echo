@@ -1,0 +1,2 @@
+#!/bin/sh
+echo this output is from test_bin/echo

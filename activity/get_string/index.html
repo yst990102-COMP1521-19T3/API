@@ -1,0 +1,50 @@
+{{ with_file("files.cp/get_string.c", change_function="get_string") }}
+
+<p>
+The function <code>get_string</code> should read a line of input from the specified stream.
+<p>
+More precisely it should: read in  at  most one less than size characters from stream and store them into the
+buffer pointed to by s.  Reading stops after an EOF or a newline.  If a newline is read, it  is
+stored  into  the buffer.  A terminating null byte ('\0') is stored after the last character in the buffer
+<p>
+For example:
+<p>
+<pre is="tty">
+<kbd is="sh">./get_string 12</kbd>
+calling get_string(s, 12, stdin):
+<kbd>hello
+</kbd>s now contains 'hello
+'
+<kbd is="sh">./get_string 16</kbd>
+calling get_string(s, 16, stdin):
+<kbd>good bye
+</kbd>s now contains 'good bye
+'
+<kbd is="sh">./get_string 5</kbd>
+calling get_string(s, 5, stdin):
+hello
+s now contains 'hell'
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make get_string'</span>
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>get_string</code>' prototype (its return type and argument types).
+
+<li><p>
+You are not permitted to use fscanf fgets, read.
+
+<li><p>
+You are not permitted to use C library function other than fgetc.
+
+</p></li></p></li></p></li></p></li></ul>
+</p></p></p></p></p>

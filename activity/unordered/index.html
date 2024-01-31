@@ -1,0 +1,60 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/unordered.s"><code>unordered.s</code></a>,
+a MIPS assembler program that
+reads 10 numbers and then prints 42:
+
+<p>
+Add code to <code>unordered.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/unordered.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">cat numbers1.txt</kbd>
+12086
+24363
+47363
+64268
+34001
+6800
+60742
+48867
+26002
+54999
+<kbd is="sh">1521 spim -f unordered.s &lt;numbers1.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+1
+<kbd is="sh">cat sorted.txt</kbd>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+<kbd is="sh">1521 spim -f unordered.s &lt;sorted.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+0
+</pre>
+<aside class="hint">
+<p>
+Start by choosing which register you will use for each variable.
+<p>
+Reading the 10 numbers in every time can be inconvenient when debugging.
+<p>
+You can comment out the loop that reads the 10 numbers and just initialize
+the array to values useful for debugging.
+<p>
+See <a href="{{activity_url}}files.cp/unordered_hard_coded.s"><code>unordered_hard_coded.s</code></a> for an example of this.
+<p>
+Don't forget to uncomment the loopthat reads the 10 numbers  before autotesting.
+
+</p></p></p></p></p></aside>
+</p></p></p>

@@ -1,0 +1,13 @@
+max_cpu=10
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+files=last_line.c
+command=./last_line
+max_file_size_bytes=2000000000000
+shell=1
+
+huge0 command="echo -e 'hello\nword'|dd status=none seek=1T bs=1 >huge_hello.txt;  ./last_line huge_hello.txt" expected_stdout="word\n"
+huge1 command="echo -n -e 'hello\nword'|dd status=none seek=500G bs=1 >huge_hello1.txt;  ./last_line huge_hello1.txt" expected_stdout="word"
+huge2 command="seq 1 24|dd status=none seek=750G bs=1 >42.txt;  ./last_line 42.txt" expected_stdout="24\n"
+

@@ -1,0 +1,46 @@
+You have been given <a href="{{activity_url}}files.cp/reverse_negative.s"><code>reverse_negative.s</code></a>,
+a MIPS assembler program that
+reads numbers into an array.
+
+<p>
+Add code to <code>reverse_negative.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/reverse_negative.c") }}
+
+<p>
+In other words make it stop when a negative number is read and then print
+the numbers readin reverse order.
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f reverse_negative.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>1
+2
+3
+4
+-1
+</kbd>4
+3
+2
+1
+<kbd is="sh">1521 spim -f reverse_negative.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>15
+4
+1
+42
+-3
+</kbd>42
+1
+4
+15
+</pre>
+<aside class="note">
+<p>
+You can assume that a negative number will always be entered and at most 999 numbers are entered before a negative
+number is entered.
+</p></aside>
+</p></p></p>

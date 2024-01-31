@@ -1,0 +1,15 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=15
+compiler_args=-Dmain=_main autotest_web_server.c serve_web_page.c -o autotest_web_server
+ignore_white_space=1
+ignore_blank_lines=1
+ignore_case=1
+files=serve_web_page.c
+
+
+0 command=./autotest_web_server a.html expected_stdout="HTTP/1.1 200 OK\x0d\nContent-type: text/html\x0d\n\x0d\n<!DOCTYPE html>\n<html>\n<head>\n<style>\n\n// animated CSS by Stephen Roberts\n// https://codepen.io/matchboxhero/pen/XeQWNw\n\n*,\n*::before,\n*::after {\n    box-sizing: border-box;\n}\n\n.bird {\n    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells.svg);\n    background-size: auto 100%;\n    width: 352px;\n    height: 500px;\n    will-change: background-position;\n    animation-name: fly-cycle;\n    animation-duration: 1s;\n    animation-delay: -0.5s;\n    animation-timing-function: steps(10);\n    animation-iteration-count: infinite;\n}\n\n.bird-container {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%,-50%);\n    will-change: transform;\n}\n\n@keyframes fly-cycle {\n    100% {\n        background-position: -3600px 0;\n    }\n}\n\n</style>\n</head>\n<body>\n    <div class=\x22bird-container\x22>\n        <div class=\x22bird\x22></div>\n    </div>\n</body>\n</html>\n"
+
+1 command=./autotest_web_server b.html expected_stdout="HTTP/1.1 200 OK\x0d\nContent-type: text/html\x0d\n\x0d\n<!DOCTYPE html>\n<html>\n<head>\n<title>This is the title of the page.</title>\n</head>\n<body bgcolor=\x22gray\x22>\n<p>This is a paragraph.</p>\n<a href=\x22https://cgi.cse.unsw.edu.au/~cs1521/\x22>This is a link.</a>\n</body>\n</html>\n"
+
+2 command=./autotest_web_server c.html expected_stdout="HTTP/1.1 404 Not Found\x0d\n\x0d\n"

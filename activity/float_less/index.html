@@ -1,0 +1,68 @@
+{{ with_file("files.cp/float_less.c", change_function="float_less") }}
+
+<p>
+Add code to the function <code>float_less</code>,
+which takes the bits of two <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">float</a>s
+as the type <code>uint32_t</code>,
+and returns 1 if
+the value of the first <code>float</code> is less than the second,
+and 0 otherwise.
+It should do this using bit operations and integer comparisons.
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">./float_less 1 2</kbd>
+float_less(1, 2) returned 1 which is correct
+float_less(2, 1) returned 0 which is correct
+<kbd is="sh">./float_less -3.14159265 -2.718281828e-20</kbd>
+loat_less(-3.14159274, -2.7182819e-20) returned 1 which is correct
+float_less(-2.7182819e-20, -3.14159274) returned 0 which is correct
+<kbd is="sh">./float_less -inf inf</kbd>
+float_less(-inf, inf) returned 1 which is correct
+float_less(inf, -inf) returned 0 which is correct
+<kbd is="sh">./float_less -0 0</kbd>
+float_less(-0, 0) returned 0 which is correct
+float_less(0, -0) returned 0 which is correct
+<kbd is="sh">./float_less NaN inf</kbd>
+float_less(nan, inf) returned 0 which is correct
+float_less(inf, nan) returned 0 which is correct
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make float_less'</span>
+</pre>
+<aside class="hint">
+<p>
+The functions you wrote earlier in this lab may be useful.
+<p>
+Consider each of the cases carefully.
+</p></p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+<code>float_less</code> should return an <code>int</code>, either 0 or 1.
+
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You can assume the supplied <code>float</code>s are not
+in <a href="https://en.wikipedia.org/wiki/Denormal_number">denormal</a> form.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to perform floating-point operations,
+or to use variables of type <code>float</code> or <code>double</code>,
+or to use multiplication or division.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>float_less</code>' prototype (its return type and argument types).
+</p></li></p></li></p></li></p></li></p></li></ul>
+</aside>
+</p></p></p>

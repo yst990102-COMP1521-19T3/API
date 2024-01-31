@@ -1,0 +1,21 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=60
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+command=1521 spim -f bubblesort.s
+files=bubblesort.s
+
+
+0 stdin="1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n" description="1 2 3 4 5 6 7 8 9 10" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n"
+1 stdin="1\n2\n3\n4\n15\n6\n7\n8\n9\n5\n" description="1 2 3 4 15 6 7 8 9 5" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n1\n2\n3\n4\n5\n6\n7\n8\n9\n15\n"
+2 stdin="1\n2\n3\n4\n15\n6\n7\n8\n9\n11\n" description="1 2 3 4 15 6 7 8 9 11" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n1\n2\n3\n4\n6\n7\n8\n9\n11\n15\n"
+3 stdin="1\n2\n3\n4\n5\n6\n17\n8\n9\n0\n" description="1 2 3 4 5 6 17 8 9 0" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n0\n1\n2\n3\n4\n5\n6\n8\n9\n17\n"
+4 stdin="5\n5\n115\n5\n15\n4\n5\n5\n5\n5\n" description="5 5 115 5 15 4 5 5 5 5" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n4\n5\n5\n5\n5\n5\n5\n5\n15\n115\n"
+5 stdin="5\n5\n5\n115\n5\n4\n15\n15\n115\n4\n" description="5 5 5 115 5 4 15 15 115 4" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n4\n4\n5\n5\n5\n5\n15\n15\n115\n115\n"
+6 stdin="41635\n63512\n15589\n46472\n63142\n38787\n38676\n4548\n44926\n40553\n" description="41635 63512 15589 46472 63142 38787 38676 4548 44926 40553" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n4548\n15589\n38676\n38787\n40553\n41635\n44926\n46472\n63142\n63512\n"
+7 stdin="196\n32334\n55783\n20891\n37060\n61068\n26512\n34162\n63341\n17996\n" description="196 32334 55783 20891 37060 61068 26512 34162 63341 17996" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n196\n17996\n20891\n26512\n32334\n34162\n37060\n55783\n61068\n63341\n"
+8 stdin="19228\n21673\n61212\n3803\n62596\n46712\n1305\n27879\n50866\n3823\n" description="19228 21673 61212 3803 62596 46712 1305 27879 50866 3823" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n1305\n3803\n3823\n19228\n21673\n27879\n46712\n50866\n61212\n62596\n"
+9 stdin="961\n46514\n32691\n59140\n23448\n25338\n49498\n18314\n57500\n19086\n" description="961 46514 32691 59140 23448 25338 49498 18314 57500 19086" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n961\n18314\n19086\n23448\n25338\n32691\n46514\n49498\n57500\n59140\n"
+10 stdin="61168\n1837\n779\n53764\n3704\n59789\n49106\n17791\n41997\n3143\n" description="61168 1837 779 53764 3704 59789 49106 17791 41997 3143" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n779\n1837\n3143\n3704\n17791\n41997\n49106\n53764\n59789\n61168\n"

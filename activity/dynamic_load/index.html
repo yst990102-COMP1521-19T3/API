@@ -1,0 +1,135 @@
+<p>
+Write a MIPS assembler program <code>dynamic_load.s</code>
+which reads MIPS instructions as signed decimal integers
+until it reads the value -1,
+then executes the instructions.
+<p>
+<b>dynamic_load.s</b> should read instructions until it reads the value -1.
+<p>
+<b>dynamic_load.s</b> should then print a message,
+load the instructions, print another message,
+exactly as in the examples below.
+<p>
+For example,
+below is a tiny MIPS assembler program
+which prints 42.
+The comment on each line shows
+how the instruction is encoded,
+as a hexadecimal and as a signed decimal integer;
+it is this signed integer value
+that your program will read.
+
+<pre>
+li $a0, 42  # 3404002a  -3422289878
+li $v0, 1   # 34020001  -3422420991
+syscall     # 0000000c           12
+jr $ra      # 03e00008     65011720
+</pre>
+<p>
+This is what <code>dynamic_load.s</code> must do.
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f dynamic_load.s</kbd>
+Enter mips instructions as integers, -1 to finish:
+<kbd>-3422289878
+-3422420991
+12
+65011720
+-1
+</kbd>Starting executing instructions
+42Finished executing instructions
+</pre>
+<p>
+The supplied files for the lab include
+files containing the instructions for
+some MIPS assembler programs from lectures.
+You can use these to test your program; for example:
+
+<pre is="tty">
+<kbd is="sh">cat add.instructions</kbd>
+-3422027759
+-3421962215
+19419168
+663585
+-3422420991
+12
+-3422289910
+-3422420981
+12
+65011720
+-1
+<kbd is="sh">1521 spim -f dynamic_load.s &lt;add.instructions</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter mips instructions as integers, -1 to finish:
+Starting executing instructions
+42
+Finished executing instructions
+<kbd is="sh">1521 spim -f dynamic_load.s &lt;print10.instructions</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter mips instructions as integers, -1 to finish:
+Starting executing instructions
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Finished executing instructions
+<kbd is="sh">1521 spim -f dynamic_load.s &lt;sum_100_squares.instructions</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter mips instructions as integers, -1 to finish:
+Starting executing instructions
+338350
+Finished executing instructions
+</pre>
+<p>
+If you want to experiment with your own tests,
+this command will give you any MIPS program as integers.
+
+<pre is="tty">
+<kbd is="sh">1521 mips_instructions 42.s</kbd>
+-3422289878
+-3422420991
+12
+65011720
+-1
+</pre>
+<p>
+If you want to try creating your own test cases,
+here is some MIPS assembler
+that prints a message without using initialized data:
+
+{{include_code("files.cp/print_for_challenge.s")}}
+
+<aside class="hint">
+<p>
+This exercises involves
+writing only a small amount of code,
+but it is tricky to get right
+and will involve some thought and experimentation.
+</p>
+</aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+The input to <code>dynamic_load.s</code>
+will be between 1 and 1024 signed decimal integers:
+spim can't read hexadecimal.
+
+<li><p>
+You can assume the instructions don't use initialized data.
+This mean printing strings in the normal way won't work.
+
+<li><p>
+You can assume the instructions read in execute a <code>jr $ra</code> instruction to terminate.
+
+<li><p>
+You can assume the instructions don't use jump instructions,
+except for <code>jr $ra</code>.
+</p></li></p></li></p></li></p></li></ul>
+</aside>
+</p></p></p></p></p></p></p></p>

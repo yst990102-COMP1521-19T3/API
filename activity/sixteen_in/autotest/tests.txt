@@ -1,0 +1,16 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+
+
+0 command=./sixteen_in 0000000000000000 description="0000000000000000" expected_stdout="0\n"
+1 command=./sixteen_in 0000000000000001 description="0000000000000001" expected_stdout="1\n"
+2 command=./sixteen_in 1111111111111111 description="1111111111111111" expected_stdout="-1\n"
+3 command=./sixteen_in 0111111111111111 description="0111111111111111" expected_stdout="32767\n"
+4 command=./sixteen_in 1000000000000000 description="1000000000000000" expected_stdout="-32768\n"
+5 command=./sixteen_in 0101010101010101 description="0101010101010101" expected_stdout="21845\n"
+6 command=./sixteen_in 1111011101111000 description="1111011101111000" expected_stdout="-2184\n"
+7 command=./sixteen_in 1110001110001110 description="1110001110001110" expected_stdout="-7282\n"
+8 command=./sixteen_in 0111000111000111 description="0111000111000111" expected_stdout="29127\n"
+9 command=./sixteen_in 0111010100110000 description="0111010100110000" expected_stdout="30000\n"
+10 command=./sixteen_in 1000101011010000 description="1000101011010000" expected_stdout="-30000\n"

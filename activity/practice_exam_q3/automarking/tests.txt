@@ -1,0 +1,15 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+command=1521 spim -f practice_exam_q3.s
+files=practice_exam_q3.s
+
+
+0 stdin="10\n16\n" description="10 16" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n11\n12\n14\n15\n"
+1 stdin="4\n12\n" description="4 12" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n5\n6\n7\n8\n9\n10\n11\n"
+2 stdin="8\n43\n" description="8 43" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n9\n10\n11\n12\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n"
+3 stdin="3\n21\n" description="3 21" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n4\n5\n6\n7\n8\n9\n10\n11\n12\n14\n15\n16\n17\n18\n19\n20\n"
+4 stdin="41\n49\n" description="41 49" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n42\n43\n44\n45\n46\n47\n48\n"

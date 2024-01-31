@@ -1,0 +1,23 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+checkers=./check_features_used.sh
+compiler_args=-Dmain=_main autotest_float_print.c float_print.c -o float_print
+files=float_print.c
+
+
+0 command=./float_print 8 expected_stdout="8\n"
+1 command=./float_print -42 expected_stdout="-42\n"
+2 command=./float_print 42 expected_stdout="42\n"
+3 command=./float_print 3.99 expected_stdout="3.99000001\n"
+4 command=./float_print 0.748 expected_stdout="0.748000026\n"
+5 command=./float_print 0.500001 expected_stdout="0.500001013\n"
+6 command=./float_print -0.749 expected_stdout="-0.749000013\n"
+7 command=./float_print -0.75001 expected_stdout="-0.750010014\n"
+8 command=./float_print 4.298765432e-31 expected_stdout="4.29876544e-31\n"
+9 command=./float_print 9.91234567e+37 expected_stdout="9.91234519e+37\n"
+10 command=./float_print inf expected_stdout="inf\n"
+11 command=./float_print -inf expected_stdout="-inf\n"
+12 command=./float_print 0.0 expected_stdout="0\n"
+13 command=./float_print -0.0 expected_stdout="-0\n"
+14 command=./float_print NaN expected_stdout="nan\n"

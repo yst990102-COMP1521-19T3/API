@@ -1,0 +1,13 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+ax_cpu=30
+checkers=./check_features_used.sh
+compiler_args=-Dmain=_main autotest_get_string.c get_string.c -o get_string
+files=get_string.c
+shell=1
+
+1 command=./get_string 16 stdin="belloworld\n" description='get_string size=16 input="belloworld"' expected_stdout="calling get_string(s, 16, stdin):\ns now contains 'belloworld\n'\n"
+2 command=./get_string 8 stdin="belloworld\n" description='get_string size=8 input="belloworld"' expected_stdout="calling get_string(s, 8, stdin):\ns now contains 'bellowo'\n"
+3 command=./get_string 1 stdin="belloworld\n" description='get_string size=1 input="belloworld"' expected_stdout="calling get_string(s, 1, stdin):\ns now contains ''\n"
+4 command=./get_string 30 stdin="bbcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n" description='get_string size=30 input="bbcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"' expected_stdout="calling get_string(s, 30, stdin):\ns now contains 'bbcdefghijklmnopqrstuvwxyzABC'\n"
+5 command=./get_string 64 stdin="bbcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n" description='get_string size=64 input="bbcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"' expected_stdout="calling get_string(s, 64, stdin):\ns now contains 'bbcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n'\n"

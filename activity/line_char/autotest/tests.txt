@@ -1,0 +1,9 @@
+max_cpu=30
+command=1521 spim -f line_char.s
+files=line_char.s
+
+0 stdin="hello world\n0\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: h\n"
+1 stdin="hello world\n4\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: o\n"
+2 stdin="hello world\n6\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: w\n"
+3 stdin="1one2two3three4four100hundred1000\n32\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: 0\n"
+4 stdin="0123456789\n5\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Enter a position: Character is: 5\n"

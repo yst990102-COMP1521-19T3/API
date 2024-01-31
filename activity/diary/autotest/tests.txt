@@ -1,0 +1,9 @@
+max_cpu=10
+files=diary.c
+command=./diary
+shell=1
+
+0 command="rm -f $HOME/.diary; ./diary world; echo printing diary; cat $HOME/.diary" expected_stdout="printing diary\nworld\n"
+1 command="rm -f $HOME/.diary; ./diary hello; ./diary world; echo printing diary; cat $HOME/.diary" expected_stdout="printing diary\nhello\nworld\n"
+2 command="rm -f $HOME/.diary; ./diary 1 2 3; ./diary hello world; ./diary a b c; echo printing diary; cat $HOME/.diary" expected_stdout="printing diary\n1 2 3\nhello world\na b c\n"
+3 command="rm -rf subdir;mkdir subdir;  HOME=$(pwd)/subdir ./diary hello world; echo printing diary; cat subdir/.diary" expected_stdout="printing diary\nhello world\n"

@@ -1,0 +1,47 @@
+You have been given <a href="{{activity_url}}files.cp/not_negative.s"><code>not_negative.s</code></a>,
+a MIPS assembler program that reads a numbers and then prints it.
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f not_negative.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>42</kbd>
+You entered: 42
+</pre>
+
+Add code to <code>not_negative.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/not_negative.c") }}
+
+In other words it should read numbers until a non-negative number is entered,
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f not_negative.s</kbd>
+Enter a number: <kbd>-5</kbd>
+Enter a positive number
+Enter a number: <kbd>-1</kbd>
+Enter a positive number
+Enter a number: <kbd>24</kbd>
+You entered: 24
+<kbd is="sh">1521 spim -f not_negative.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>-1</kbd>
+Enter a positive number
+Enter a number: <kbd>-2</kbd>
+Enter a positive number
+Enter a number: <kbd>-3</kbd>
+Enter a positive number
+Enter a number: <kbd>-4</kbd>
+Enter a positive number
+Enter a number: <kbd>-5</kbd>
+Enter a positive number
+Enter a number: <kbd>0</kbd>
+You entered: 0
+<kbd is="sh">1521 spim -f not_negative.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>100</kbd>
+You entered: 100
+</pre>
+</p>

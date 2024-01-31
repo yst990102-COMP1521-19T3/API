@@ -1,0 +1,135 @@
+<p>
+We are distributing programs as binaries,
+and would like to know what if the C compiler
+is leaving any confidential information
+in the binaries as ASCII strings.
+
+<p>
+Only 95 of 256 byte values correspond to printable ASCII characters,
+so several byte values in a row
+corresponding to printable characters
+probably will occur infrequently in non-ASCII data.
+There is only a 2% chance that
+four (independent, uniform) random byte values
+will correspond to ASCII printable characters.
+
+<p>
+Write a C program, <code>hidden_strings</code>,
+which takes one argument, a filename;
+it should read that file,
+and print all sequences of length 4 or longer
+of consecutive byte values
+corresponding to printable ASCII characters.
+In other words,
+your program should read through the bytes of the file,
+and if it finds 4 bytes in a row containing printable characters,
+it should print those bytes,
+and any following bytes containing ASCII printable characters.
+
+<p>
+Print each sequence on a separate line.
+
+<p>
+Assume ASCII printable characters are those for which
+the <code>ctype.h</code> function <cite>isprint(3)</cite>
+returns a non-zero value.
+
+<p>
+Do not read the entire file into an array.
+
+<p>
+Use the <code>create_binary_file</code> program from the previous exercise
+to create simple test data.  For example:
+
+<pre is="tty">
+<kbd is="sh">dcc hidden_strings.c -o hidden_strings</kbd>
+<kbd is="sh">./create_binary_file test_file 72 101 108 108 111 255 255 65 110 100 114 101 119</kbd>
+<kbd is="sh">./hidden_strings test_file</kbd>
+Hello
+Andrew
+</pre>
+<p>
+When you think your program is working,
+try extracting strings from a compiled binary.
+For example:
+
+<pre is="tty">
+<kbd is="sh">cat secret.c</kbd>
+#define secret_hash_define 1
+
+// secret comment
+
+int secret_global_variable;
+
+int main(void) {
+    int secret_local_variable;
+    char *s = "secret string";
+}
+
+int secret_function_name() {
+}
+<kbd is="sh">gcc secret.c -o binary1</kbd>
+<kbd is="sh">gcc secret.c -g -o binary2</kbd>
+<kbd is="sh">gcc secret.c -s -o binary3</kbd>
+<kbd is="sh">./hidden_strings binary1</kbd>
+/lib64/ld-linux-x86-64.so.2
+libc.so.6
+__cxa_finalize
+__libc_start_main
+GLIBC_2.2.5
+...
+<kbd is="sh">./hidden_strings binary1|grep secret</kbd>
+secret string
+secret.c
+secret_function_name
+secret_global_variable
+<kbd is="sh">./hidden_strings binary2|grep secret</kbd>
+secret string
+secret.c
+secret.c
+secret_global_variable
+secret_function_name
+secret_local_variable
+secret.c
+secret_function_name
+secret_global_variable
+<kbd is="sh">./hidden_strings binary3|grep secret</kbd>
+secret string
+</pre>
+<p>
+The above example shows that, by default,
+<cite>gcc(1)</cite> leaves function names,
+global variables names and the filename in the binary.
+
+<p>
+If you specify the <code>-g</code> command line option,
+variable names are also left in the binary.
+This is part of information left for debuggers
+such as <cite>gdb(1)</cite> (which dcc uses).
+This information allows debuggers to print the current value of variables.
+
+<p>
+If you specify the <code>-s</code> command line option,
+all names are stripped from the binary but the string remains.
+
+<p>
+<aside class="hint">
+Use <cite>fopen(3)</cite> to open the file,
+and <cite>fgetc(3)</cite> to read the file.
+</aside>
+<aside class="hint">
+Use a 3-element array as a buffer.
+</aside>
+<aside class="note">
+<p>
+You do not have to consider locale or Unicode in this exercises.
+<p>
+Tab ('\t') and newline ('\n') are not printing characters for our purposes:
+<cite>isprint(3)</cite> returns 0 for them.
+<p>
+You are not permitted to read the entire file into an array.
+<p>
+The useful *nix utility <cite>strings(1)</cite>
+does almost exactly what your program does.
+</p></p></p></p></aside>
+</p></p></p></p></p></p></p></p></p></p></p></p>

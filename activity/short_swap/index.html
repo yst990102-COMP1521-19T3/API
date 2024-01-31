@@ -1,0 +1,41 @@
+{{ with_file("files.cp/short_swap.c", change_function="short_swap") }}
+
+<p>
+Add code to the function <code>short_swap</code> so that,
+given a <code>uint16_t</code> value,
+it returns the value with its bytes swapped.
+You should use bitwise operators to do this.
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">./short_swap 0x1234</kbd>
+short_swap(0x1234) returned 0x3412
+<kbd is="sh">./short_swap 0xfade</kbd>
+short_swap(0xfade) returned 0xdefa
+<kbd is="sh">./short_swap 0x01080</kbd>
+short_swap(0x1080) returned 0x8010
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make short_swap'</span>
+</pre>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to use division (<code>/</code>), multiplication (<code>*</code>), or modulus (<code>%</code>).
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>short_swap</code>'s prototype (its return type and argument types).
+</p></li></p></li></p></li></ul>
+</aside>
+</p></p></p>

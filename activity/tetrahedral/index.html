@@ -1,0 +1,54 @@
+<p>
+In the files for this lab,
+you have been given <code>tetrahedral.s</code>,
+a MIPS assembler program that
+reads a number and prints 42:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f tetrahedral.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>42</kbd>
+42
+</pre>
+<p>
+Add code to <code>tetrahedral.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.cp/tetrahedral.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f tetrahedral.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter number: <kbd>5</kbd>
+1
+4
+10
+20
+35
+<kbd is="sh">1521 spim -f tetrahedral.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter number: <kbd>12</kbd>
+1
+4
+10
+20
+35
+56
+84
+120
+165
+220
+286
+364
+</pre>
+<aside class="hint">
+<p>
+Make sure you understand
+the <a href="{{url_root}}code/mips_control/#sum_100_squares.s">sum_100_squares.s</a> lecture example.
+<p>
+Started by choosing which register you will use for each variable.
+</p></p></aside>
+</p></p></p>

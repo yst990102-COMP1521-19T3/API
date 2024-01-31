@@ -1,0 +1,27 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+compiler_args=-Dmain=_main autotest_float_less.c float_less.c -o float_less
+files=float_less.c
+
+
+1 command=./float_less 4 3.99 expected_stdout="float_less(4, 3.99000001) returned 0 which is correct\nfloat_less(3.99000001, 4) returned 1 which is correct\n"
+2 command=./float_less 0.248 0.249 expected_stdout="float_less(0.247999996, 0.248999998) returned 1 which is correct\nfloat_less(0.248999998, 0.247999996) returned 0 which is correct\n"
+3 command=./float_less -0.248 -0.249 expected_stdout="float_less(-0.247999996, -0.248999998) returned 0 which is correct\nfloat_less(-0.248999998, -0.247999996) returned 1 which is correct\n"
+4 command=./float_less inf inf expected_stdout="float_less(inf, inf) returned 0 which is correct\nfloat_less(inf, inf) returned 0 which is correct\n"
+5 command=./float_less inf -inf expected_stdout="float_less(inf, -inf) returned 0 which is correct\nfloat_less(-inf, inf) returned 1 which is correct\n"
+6 command=./float_less inf 0.0 expected_stdout="float_less(inf, 0) returned 0 which is correct\nfloat_less(0, inf) returned 1 which is correct\n"
+7 command=./float_less inf 42 expected_stdout="float_less(inf, 42) returned 0 which is correct\nfloat_less(42, inf) returned 1 which is correct\n"
+8 command=./float_less inf -42 expected_stdout="float_less(inf, -42) returned 0 which is correct\nfloat_less(-42, inf) returned 1 which is correct\n"
+9 command=./float_less -inf -inf expected_stdout="float_less(-inf, -inf) returned 0 which is correct\nfloat_less(-inf, -inf) returned 0 which is correct\n"
+10 command=./float_less -inf 0.0 expected_stdout="float_less(-inf, 0) returned 1 which is correct\nfloat_less(0, -inf) returned 0 which is correct\n"
+11 command=./float_less -inf 42 expected_stdout="float_less(-inf, 42) returned 1 which is correct\nfloat_less(42, -inf) returned 0 which is correct\n"
+12 command=./float_less -inf -42 expected_stdout="float_less(-inf, -42) returned 1 which is correct\nfloat_less(-42, -inf) returned 0 which is correct\n"
+13 command=./float_less 0.0 0.0 expected_stdout="float_less(0, 0) returned 0 which is correct\nfloat_less(0, 0) returned 0 which is correct\n"
+14 command=./float_less 0.0 42 expected_stdout="float_less(0, 42) returned 1 which is correct\nfloat_less(42, 0) returned 0 which is correct\n"
+15 command=./float_less 0.0 -42 expected_stdout="float_less(0, -42) returned 0 which is correct\nfloat_less(-42, 0) returned 1 which is correct\n"
+16 command=./float_less 42 42 expected_stdout="float_less(42, 42) returned 0 which is correct\nfloat_less(42, 42) returned 0 which is correct\n"
+17 command=./float_less 42 -42 expected_stdout="float_less(42, -42) returned 0 which is correct\nfloat_less(-42, 42) returned 1 which is correct\n"
+18 command=./float_less -42 -42 expected_stdout="float_less(-42, -42) returned 0 which is correct\nfloat_less(-42, -42) returned 0 which is correct\n"
+19 command=./float_less NaN inf expected_stdout="float_less(nan, inf) returned 0 which is correct\nfloat_less(inf, nan) returned 0 which is correct\n"
+20 command=./float_less -inf NaN expected_stdout="float_less(-inf, nan) returned 0 which is correct\nfloat_less(nan, -inf) returned 0 which is correct\n"

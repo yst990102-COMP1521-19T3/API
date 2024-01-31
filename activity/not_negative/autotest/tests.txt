@@ -1,0 +1,12 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f not_negative.s
+files=not_negative.s
+
+
+0 stdin="-5\n-1\n24\n" description="-5 -1 24" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a number: Enter a positive number\nEnter a number: Enter a positive number\nEnter a number: You entered: 24\n"
+1 stdin="-1\n-2\n-3\n-3\n-4\n-5\n0\n" description="-1 -2 -3 -3 -4 -5 0" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a number: Enter a positive number\nEnter a number: Enter a positive number\nEnter a number: Enter a positive number\nEnter a number: Enter a positive number\nEnter a number: Enter a positive number\nEnter a number: Enter a positive number\nEnter a number: You entered: 0\n"
+2 stdin="100\n" description="100" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a number: You entered: 100\n"
+3 stdin="-100\n1\n" description="-100 1" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a number: Enter a positive number\nEnter a number: You entered: 1\n"
+4 stdin="-1\n-1\n1\n" description="-1 -1 1" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a number: Enter a positive number\nEnter a number: Enter a positive number\nEnter a number: You entered: 1\n"

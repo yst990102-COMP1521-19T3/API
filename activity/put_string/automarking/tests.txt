@@ -1,0 +1,13 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+checkers=./check_features_used.sh
+compiler_args=-Dmain=_main autotest_put_string.c put_string.c -o put_string
+files=put_string.c
+shell=1
+
+
+0 command="./put_string 'helloo'" expected_stdout="calling put_string(\x22helloo\x22):\nhelloo\n"
+1 command="./put_string 'test1234'" expected_stdout="calling put_string(\x22test1234\x22):\ntest1234\n"
+2 command="./put_string 'good bye now'" expected_stdout="calling put_string(\x22good bye now\x22):\ngood bye now\n"
+3 command="./put_string ''" expected_stdout="calling put_string(\x22\x22):\n\n"

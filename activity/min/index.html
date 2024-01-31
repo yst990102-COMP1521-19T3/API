@@ -1,0 +1,33 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/min.s"><code>min.s</code></a>,
+a MIPS assembler program that
+reads 2 numbers and then prints 42.
+<p>
+Add code to <code>min.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/min.c") }}
+
+In other words it should read 2 numbers and print the smaller number.
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f min.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>5
+8
+</kbd>5
+<kbd is="sh">1521 spim -f min.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>118
+26
+</kbd>26
+<kbd is="sh">1521 spim -f min.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>42
+42
+</kbd>42
+</pre>
+</p></p></p>

@@ -1,0 +1,14 @@
+max_cpu=10
+files=is_var_set.c
+command=./is_var_set
+shell=1
+
+0 command="./is_var_set HOME" expected_stdout="1\n"
+
+1 command="./is_var_set HOMER" expected_stdout="0\n"
+
+2 command="VAR1=hello ./is_var_set VAR1" expected_stdout="1\n"
+
+3 command="VAR2='' ./is_var_set VAR2" expected_stdout="0\n"
+
+4 command="./is_var_set VAR3" expected_stdout="0\n"

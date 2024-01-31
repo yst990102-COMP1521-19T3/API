@@ -1,0 +1,12 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f line_length.s
+files=line_length.s
+
+
+0 stdin="Hello\n" description="Hello" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Line length: 6\n"
+1 stdin="i\nMIPS\nyou\n" description="i MIPS you" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Line length: 2\n"
+2 stdin="good\nbye\n" description="good bye" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Line length: 5\n"
+3 stdin="42\n" description="42" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Line length: 3\n"
+4 stdin="*-----\n" description="*-----" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: Line length: 7\n"

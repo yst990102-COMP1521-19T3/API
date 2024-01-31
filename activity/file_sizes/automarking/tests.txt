@@ -1,0 +1,16 @@
+max_cpu=20
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+files=file_sizes.c
+use_dcc_output_checking=0
+shell=1
+
+pre_compile_command="ulimit -f 2000000000000;dd status=none seek=24 bs=1 count=1 </dev/zero >file1;dd  status=none seek=21M bs=1 count=1 </dev/zero >file2;dd status=none seek=402G bs=1 count=1 </dev/zero >file3;dd status=none seek=1900G bs=1 count=1 </dev/zero >file4"
+pre_compile_command_shell=1
+
+0 command=./file_sizes file1 expected_stdout="file1: 25 bytes\nTotal: 25 bytes\n"
+
+1 command=./file_sizes file2 file1 expected_stdout="file2: 22020097 bytes\nfile1: 25 bytes\nTotal: 22020122 bytes\n"
+
+2 command=./file_sizes file1 file2 file3 file4 expected_stdout="file1: 25 bytes\nfile2: 22020097 bytes\nfile3: 431644213249 bytes\nfile4: 2040109465601 bytes\nTotal: 2471775698972 bytes\n"

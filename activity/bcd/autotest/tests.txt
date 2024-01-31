@@ -1,0 +1,11 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+
+
+0 command=./bcd 0 description="0x0000" expected_stdout="0\n"
+1 command=./bcd 1 description="0x0001" expected_stdout="1\n"
+2 command=./bcd 516 description="0x0204" expected_stdout="24\n"
+3 command=./bcd 1026 description="0x0402" expected_stdout="42\n"
+4 command=./bcd 2304 description="0x0900" expected_stdout="90\n"
+5 command=./bcd 2313 description="0x0909" expected_stdout="99\n"

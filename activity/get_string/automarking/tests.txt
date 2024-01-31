@@ -1,0 +1,13 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+ax_cpu=30
+checkers=./check_features_used.sh
+compiler_args=-Dmain=_main autotest_get_string.c get_string.c -o get_string
+files=get_string.c
+shell=1
+
+1 command=./get_string 16 stdin="hello-world\n" description='get_string size=16 input="hello-world"' expected_stdout="calling get_string(s, 16, stdin):\ns now contains 'hello-world\n'\n"
+2 command=./get_string 8 stdin="hello-world\n" description='get_string size=8 input="hello-world"' expected_stdout="calling get_string(s, 8, stdin):\ns now contains 'hello-w'\n"
+3 command=./get_string 1 stdin="hello-world\n" description='get_string size=1 input="hello-world"' expected_stdout="calling get_string(s, 1, stdin):\ns now contains ''\n"
+4 command=./get_string 32 stdin="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n" description='get_string size=32 input="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"' expected_stdout="calling get_string(s, 32, stdin):\ns now contains 'abcdefghijklmnopqrstuvwxyzABCDE'\n"
+5 command=./get_string 64 stdin="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n" description='get_string size=64 input="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"' expected_stdout="calling get_string(s, 64, stdin):\ns now contains 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n'\n"

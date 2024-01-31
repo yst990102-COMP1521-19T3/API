@@ -1,0 +1,15 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+compiler_args=-Dmain=_main autotest_sign_flip.c sign_flip.c -o sign_flip
+files=sign_flip.c
+
+
+0 command=./sign_flip 8 expected_stdout="sign_flip(8) returned -8\n"
+1 command=./sign_flip 3.99 expected_stdout="sign_flip(3.99000001) returned -3.99000001\n"
+2 command=./sign_flip 0.748 expected_stdout="sign_flip(0.748000026) returned -0.748000026\n"
+3 command=./sign_flip -0.749 expected_stdout="sign_flip(-0.749000013) returned 0.749000013\n"
+4 command=./sign_flip 4.298765432e-31 expected_stdout="sign_flip(4.29876544e-31) returned -4.29876544e-31\n"
+5 command=./sign_flip 9.91234567e+37 expected_stdout="sign_flip(9.91234519e+37) returned -9.91234519e+37\n"
+6 command=./sign_flip inf expected_stdout="sign_flip(inf) returned -inf\n"
+7 command=./sign_flip -inf expected_stdout="sign_flip(-inf) returned inf\n"

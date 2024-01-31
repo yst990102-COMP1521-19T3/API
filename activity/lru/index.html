@@ -1,0 +1,60 @@
+<p>
+Your task is to simulate least-recently-used (LRU) replacement of
+virtual memory pages.
+<p>
+Write a C program, <code>lru.c</code>, which takes two arguments, both integers.
+<p>
+This will be respectively the size in pages of simulated physical memory and
+and  the size in pages of simulated virtual memory.
+<p>
+<code>lru.c</code> should then read integers from stdin until EOF.
+<p>
+Each integer will be the number of a virtual page being accessed.
+<p>
+<code>lru.c</code> should print one line of output for
+indicate what action occurs with a phyical memory of the given size and LRU replacement.
+<p>
+<pre is="tty">
+<kbd is="sh">dcc lru.c -o lru</kbd>
+<kbd is="sh">./lru 4 6</kbd>
+Simulating 4 pages of physical memory, 6 pages of virtual memory
+<kbd>5</kbd>
+Time 0: virtual page 5 loaded to physical page 0
+<kbd>3</kbd>
+Time 1: virtual page 3 loaded to physical page 1
+<kbd>5</kbd>
+Time 2: virtual page 5 -&gt; physical page 0
+<kbd>3</kbd>
+Time 3: virtual page 3 -&gt; physical page 1
+<kbd>0</kbd>
+Time 4: virtual page 0 loaded to physical page 2
+<kbd>1</kbd>
+Time 5: virtual page 1 loaded to physical page 3
+<kbd>2</kbd>
+Time 6: virtual page 2  - virtual page 5 evicted - loaded to physical page 0
+<kbd>2</kbd>
+Time 7: virtual page 2 -&gt; physical page 0
+<kbd>3</kbd>
+Time 8: virtual page 3 -&gt; physical page 1
+<kbd>5</kbd>
+Time 9: virtual page 5  - virtual page 0 evicted - loaded to physical page 2
+</pre>
+<p>
+In the files for this week's lab you'be been give code which implements
+a suitable data structure to store information about accesses,
+<p>
+For each access this function is called:
+
+{{ include_code("files.cp/lru.c", function_only='access_page') }}
+
+You can complete the lab by adding code to this function (you are also free to write your own program).
+<p>
+<aside class="hint">
+If you implement this in the most obvious way you can ignore the number of virtual pages.
+</aside>
+<aside class="note">
+No error checking is required.
+<p>
+Your program can assume it is always given the names of 2 valid arguments.
+</p></aside>
+</p></p></p></p></p></p></p></p></p></p>

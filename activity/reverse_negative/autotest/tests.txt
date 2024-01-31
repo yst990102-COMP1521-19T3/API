@@ -1,0 +1,11 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f reverse_negative.s
+files=reverse_negative.s
+
+
+0 stdin="1\n2\n3\n4\n-1\n" description="1 2 3 4 -1" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n4\n3\n2\n1\n"
+1 stdin="15\n4\n1\n42\n-3\n" description="15 4 1 42 -3" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n42\n1\n4\n15\n"
+2 stdin="1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n-1\n" description="1 2 3 4 5 6 7 8 9 10 -1" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n"
+3 stdin="25664\n11593\n12172\n17\n30727\n8527\n23102\n26011\n28344\n5565\n-67\n" description="25664 11593 12172 17 30727 8527 23102 26011 28344 5565 -67" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n5565\n28344\n26011\n23102\n8527\n30727\n17\n12172\n11593\n25664\n"

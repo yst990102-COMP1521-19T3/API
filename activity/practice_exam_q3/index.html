@@ -1,0 +1,45 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/practice_exam_q3.s"><code>practice_exam_q3.s</code></a>,
+a MIPS assembler program that
+reads 2 numbers and then prints 42.
+<p>
+Add code to <code>practice_exam_q3.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/practice_exam_q3.c") }}
+
+In other words it should read 2 numbers and print the numbers between them, except it doesn't print 13.
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f practice_exam_q3.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>5
+8
+</kbd>6
+7
+<kbd is="sh">1521 spim -f practice_exam_q3.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>10
+15
+</kbd>11
+12
+14
+<kbd is="sh">1521 spim -f practice_exam_q3.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>5
+14
+</kbd>6
+7
+8
+9
+10
+11
+12
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+
+You can assume the first number read is not greater than the second number.
+</p></p></p>

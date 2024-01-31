@@ -1,0 +1,39 @@
+{{ with_file("files.cp/addi.c", change_function="addi") }}
+
+<p>
+The function <code>addi</code> is given the operands for a MIPS <b>addi</b> instruction .
+Add code so that it returns the opcode for that instruction.
+<p>
+The <a href="{{url_root}}/assignments/ass1/index.html">assignment 1 specifcation</a> provides the
+general bit pattern for an <b>addi</b> instruction.
+<p>
+The reference implementation for assignment 1 can be used
+to print the opcode for a particular <b>addi</b> instruction, for example:
+
+<pre is="tty">
+<kbd is="sh">1521 emu -p 'addi $17 $19 -3'</kbd>
+[00400024] 2271FFFD addi $17, $19, -3
+<kbd is="sh">./addi 17 19 -3</kbd>
+addi(17, 19, -3) returned 0x2271fffd
+<kbd is="sh">1521 emu -p 'addi $9 $27 42'</kbd>
+[00400024] 2369002A addi $9, $27, 42
+<kbd is="sh">./addi 9 27 42</kbd>
+addi(9, 27, 42) returned 0x2369002a
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make addi'</span>
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>addi</code>' prototype (its return type and argument types).
+
+</p></li></p></li></ul>
+</p></p></p></p>

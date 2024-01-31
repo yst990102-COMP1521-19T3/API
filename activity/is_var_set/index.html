@@ -1,0 +1,33 @@
+<p>
+Write a C program, <code>is_var_set.c</code>, which takes one argument, the name of environment variable
+<p>
+If the environment variable is set to a non-empty string, it should print <b>1</b>, otherwise it should print <b>0</b>.
+
+<pre is="tty">
+<kbd is="sh">dcc is_var_set.c -o is_var_set</kbd>
+<kbd is="sh">./is_var_set PATH</kbd>
+1
+<kbd is="sh">./is_var_set PAT</kbd>
+0
+<kbd is="sh">VAR1=hello ./is_var_set VAR1</kbd>
+1
+<kbd is="sh">VAR2='' ./is_var_set VAR2</kbd>
+0
+<kbd is="sh">./is_var_set VAR3</kbd>
+0
+</pre>
+<aside class="note">
+The above example assumes there are not variables named PAT and VAR3 already set your in environment.
+<p>
+
+No error checking is required.
+<p>
+Your program can assume it is always a single argument.
+<p>
+It should always one line of output.  The line of output should contain only 0 or 1.
+<p>
+Your solution must be in C only.
+<p>
+You are not permitted to run external programs.  You are not permitted to use  system, popen, posix_spawn, fork or exec.
+</p></p></p></p></p></aside>
+</p></p>

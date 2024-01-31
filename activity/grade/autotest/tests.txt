@@ -1,0 +1,13 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f grade.s
+files=grade.s
+
+
+0 stdin="49\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: FL\n"
+1 stdin="50\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: PS\n"
+2 stdin="74\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: CR\n"
+3 stdin="76\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: DN\n"
+4 stdin="85\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: HD\n"
+5 stdin="100\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: HD\n"

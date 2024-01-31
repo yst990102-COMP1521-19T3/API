@@ -1,0 +1,37 @@
+<p>
+We have two 32 bit values  which the bytes have placed in an unknown order.
+<p>
+Fortunately we know the 4 bytes of the first value contains the ASCII values "UNIX"
+<p>
+Write a MIPS program nuxi.s which read the two values and prints
+the second value with its bytes correctly ordered.
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f nuxi.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>1481199189
+-2023406815
+</kbd>-2023406815
+<kbd is="sh">1521 spim -f nuxi.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>1431193944
+-2023406815
+</kbd>558065031
+<kbd is="sh">1521 spim -f nuxi.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>1230525774
+-559038737
+</kbd>-1377898562
+<kbd is="sh">1521 spim -f nuxi.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>1229871189
+305419896
+</kbd>878056056
+</pre>
+<aside class="hint">
+<p>
+A major part of this challenge is understanding the problem. Started by printing the signed integers above  in hexadecimal.
+</p></aside>
+</p></p></p></p>

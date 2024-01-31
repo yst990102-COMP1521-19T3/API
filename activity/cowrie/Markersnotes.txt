@@ -1,0 +1,173 @@
+
+*** Marking Instructions for Assignment 1
+
+Please read the assignment spec at:
+https://cgi.cse.unsw.edu.au/~cs1521/19T3/assignments/ass2/index.html
+
+82 tests were used to create an auto-testing mark out of 80 in a piecewise linear manner:
+
+
+           #tests
+subset 0     9
+subset 1    22
+subset 2    11
+subset 3     9
+subset 4    14
+subset 5    17
+total       82
+
+
+passing   6 tests => 40/80
+passing  31 tests => 52/80
+passing  51 tests => 60/80
+passing  82 tests => 80/80
+
+
+
+*** Adjusting Performance Marks
+
+Students may contact you saying a single mistake has had a large impact.
+If a single mistake has had a *large* impact (> 5/80) on a students
+performance mark you can adjust the performance mark so the impact is 5/80
+
+
+*** Marking Schemes
+
+
+My philosophy is that assignment marks should have a similar distribution
+to subject final marks.  So a student who gets 50% for the assignment
+is, on the basis of their assignment, heading for a borderline pass/fail
+in the subject.  A mark of 90% is high achievement and indicates the
+student is on track for a HD.
+
+In occasional cases you may want to edit their code and run it
+You can download via 
+https://cgi.cse.unsw.edu.au/~cs1521/19T3/student/
+because there are students with extensions automarking hasn't been released so
+1521 automark cowrie  won't work   1521 autotest cowrie   will work
+
+*** Minimum Marks for Assignment 1 
+
+Three submissions don't compile.  All other assignments passed 6+ tests and should have an
+appropriate performance mark.
+ 
+For the two submissions that don't compile.
+The *overall* mark such an assignment should achieve is specified
+below.  In borderline cases the first marking scheme may produce
+a slightly higher mark , if so use the higher mark.
+
+You will need to manually alter the performance mark
+to achieve the specified total marks - you can do this just by
+clicking on the performance mark.  You ignore the previous style
+marking guidelines - just choose a style mark necessary
+to produce the overall mark specified below.
+
+50/100 Subsets 0 & 1 is mostly implemented and with some advice and minor bug fixes it would pass
+       multiple part 1 tests.
+
+45/100 More than half the code to handle subsets 0 & 1 implemented with sensible C but there are major bugs
+       or missing bits.
+
+40/100 The student has understood the assignment and  made some progress on code to handle some of subsets 0 or 1 
+
+30/100 The student has understood the assignment and  submitted some relevant C
+
+01/100 The student has submitted anything
+
+
+*** Style Mark out of 20
+Your task is to award a style mark out of 20 and give them some
+feedback about their coding style.
+
+You are not assessing the strategy used or the efficiency of the code.
+
+You are assessing only how easy their code is for a human to read and
+understand. 
+
+Style marking should be more generous for assignments with weak performance marks.
+However definitely paste in a comment indicating the deficit.
+
+Its OK if they use features discouraged in COMP1[59]11 such as switch statements.
+COMP1521 style guide here: https://cgi.cse.unsw.edu.au/~cs1521/19T3/resources/cs1521.style_guide.html
+Ask on slack if in doubt
+
+Here is how you should allocate the style mark:
+
+    20/20  A serious and mostly successful effort has been made to make
+    the program easy for a human to read.  All the criteria below are
+    met or close to met, or all but 1 of the criteria are well met and 1 is poorly done
+
+    a) There is consistent sensible indenting - they are not required to use
+       the course indenting scheme. Definitely don't penalized them
+       for using one of the ~10 other indenting-scheme for C-like languages
+       but indenting must be sensible and consistent.
+
+       xmark assumes 8-space tabs which will be disastrous if they mix tabs and spaces
+       If xmark is unreadable try viewing via:
+          https://cgi.cse.unsw.edu.au/~cs1521/19T3/flask_tutors.cgi/student/
+          which assumes 4 space tabs
+
+    b) Blank lines & whitespace are used effectively to assist readability
+
+    c) Variables & function names are well chosen to assist readability
+       
+
+    d) Code has been appropriately decomposed into appropriately  functions of mostly < 20 lines
+       There are not 100+ line functions *which could be easily decomposed*.
+       Be generous in assessing this criteria if students have only attempted subsets 0 &1
+       but supply feedback.
+
+    e) Code has been well documented with comments
+
+       More complex/important code should have explanation - either associated with the code itself
+       or associated with the block or associated with function
+       
+       added functions should have associated comments describing its purpose.
+       don't penalize if well chosen function & parameter essentially describe purpose and leave little to add in a comment
+
+       there should also be "big picture" information supplied in comments
+       as there was a large amount of supplied code don't penalize
+       the student if they haven't added it as a header comment
+       be generous if students have attempted only subsets 0-1
+       but if students have attempted subsets 2-5 they should 
+       document approach they have taken & structure of code  
+       don't penalize for poor placement of this info - but give feedback 
+
+    f) Extra #defines (or enums) with sensible names have been added if needed
+       The supplied #defines suffice for some  approaches so don't penalize
+       if they just supplied #defines
+
+       
+    It is ok if the program has a few flaws if the above goals
+    are largely met.  I hope >25% of submissions  will meet this goal.
+
+
+    17/20  A serious effort has been made to make the program readable
+    but there is an obvious failing.  1 of the criteria above is clearly not
+    met or 2 criteria are only partly met but the program is still readable.
+    I hope >50% of submissions will achieve at least this standard.
+
+
+    15/20  2 of the criteria above are clearly not or 3-4 criteria are only partly met
+    but the program is still some what readable.
+ 
+ 
+    13/20  3 of the criteria above are clearly not met or 5-6 criteria are only partly met
+    but some effort made towards readibility.
+ 
+    10/20  4 of the criteria above are clearly not met
+ 
+     7/20  5 of the criteria above are clearly not met
+ 
+
+     0/20   The program is really ugly, unindented, impossible to read and has no
+    comments. I hope there are no assignments in this category.
+
+* definitely discuss style marking on slack if in doubt
+  
+* Don't make the style mark negative.
+
+* You may award intermediate style marks such as 13.7/20 if you wish.
+
+* You can make negative comments indicating minor failings without
+  deducting marks. In fact, you are encouraged to do this.

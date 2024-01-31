@@ -1,0 +1,42 @@
+<p>
+We need to check whether files contain non-ASCII bytes.
+<p>
+Write a C program, <code>non_ascii.c</code>, which takes one argument, a filename.
+<p>
+It should print one line of output.
+<p>
+If the file contains a non-ASCII byte, <code>non_ascii.c</code> should print the location of the
+first non-ASCII byte.   Use the same format as the example below.
+<p>
+If the file contains no non-ASCII byte <code>non_ascii.c</code> should print a message indicating this.
+Again use the same format as the example below.
+<p>
+Assume a byte is non-ASCII if it contains a value between 128..255 inclusive.
+
+<pre is="tty">
+<kbd is="sh">dcc non_ascii.c -o non_ascii</kbd>
+<kbd is="sh">echo hello world &gt;file1</kbd>
+<kbd is="sh">./non_ascii file1</kbd>
+file1 is all ASCII
+<kbd is="sh"> echo -e 'hello\xBAworld' &gt;file2</kbd>
+<kbd is="sh">./non_ascii file2</kbd>
+file2: byte 5 is non-ASCII
+<kbd is="sh">./non_ascii non_ascii.c</kbd>
+non_ascii.c is all ASCII
+<kbd is="sh"> echo -e '\x80\x81' &gt;file3</kbd>
+file2: byte 0 is non-ASCII
+</pre>
+<aside class="hint">
+Use <cite>fopen(3)</cite> to open the file,
+and <cite>fgetc(3)</cite> to read the file.
+</aside>
+<aside class="note">
+No error checking is required.
+<p>
+Your program can assume it is always given the name of a file.
+<p>
+Your solution must be in C only.
+<p>
+You are not permitted to run external programs.  You are not permitted to use  system, popen, posix_spawn, fork or exec.
+</p></p></p></aside>
+</p></p></p></p></p></p>

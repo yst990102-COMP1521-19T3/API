@@ -1,0 +1,25 @@
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+command=1521 spim -f nuxi.s
+files=nuxi.s
+
+
+# UNIX=0x58494e55, NUXI=0x4958554e, src=0xdeedbeef, exp=0xeddeefbe
+0 stdin="1230525774\n-554844433\n" description="NUXI 0xdeedbeef" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n-304156738\n"
+# UNIX=0x58494e55, UNXI=0x49584e55, src=0x12354678, exp=0x35124678
+1 stdin="1230523989\n305481336\n" description="UNXI 0x12354678" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n890390136\n"
+# UNIX=0x58494e55, UXNI=0x494e5855, src=0x12354678, exp=0x35461278
+2 stdin="1229871189\n305481336\n" description="UXNI 0x12354678" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n893784696\n"
+# UNIX=0x58494e55, UINX=0x584e4955, src=0x87645321, exp=0x87536421
+3 stdin="1481525589\n-2023468255\n" description="UINX 0x87645321" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n-2024578015\n"
+# UNIX=0x58494e55, XNIU=0x55494e58, src=0x87645321, exp=0x21645387
+4 stdin="1430867544\n-2023468255\n" description="XNIU 0x87645321" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n560223111\n"
+# UNIX=0x58494e55, NXUI=0x4955584e, src=0xdeedbeef, exp=0xedefdebe
+5 stdin="1230329934\n-554844433\n" description="NXUI 0xdeedbeef" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n-303046978\n"
+# UNIX=0x58494e55, UXNI=0x494e5855, src=0x12354678, exp=0x35461278
+6 stdin="1229871189\n305481336\n" description="UXNI 0x12354678" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n893784696\n"
+# UNIX=0x58494e55, UXIN=0x4e495855, src=0x12354678, exp=0x46351278
+7 stdin="1313429589\n305481336\n" description="UXIN 0x12354678" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n1177883256\n"

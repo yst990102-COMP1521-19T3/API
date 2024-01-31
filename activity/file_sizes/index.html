@@ -1,0 +1,42 @@
+We are worried about disk usage and would like to know how much space is used
+used by a set of files
+
+<p>
+Write a C program, <code>file_sizes.c</code>, which is given one or more filenames as command line arguments.
+It should print one line for each filename which gives the size in bytes of the file.
+It should also print a line giving the combined number of bytes in the files.
+
+<p>
+Follow the output format below.
+
+<p>
+Do not read the file - obtain the file size from the function <em>stat</em>.
+
+
+<pre is="tty">
+<kbd is="sh">dcc file_sizes.c -o file_sizes</kbd>
+<kbd is="sh">./file_sizes bubblesort.c print_bigger.c swap_numbers.c unordered.c</kbd>
+bubblesort.c: 667 bytes
+print_bigger.c: 461 bytes
+swap_numbers.c: 565 bytes
+unordered.c: 486 bytes
+Total: 2179 bytes
+<kbd is="sh">./file_sizes bubblesort.s print_bigger.s swap_numbers.s unordered.s numbers1.txt numbers2.txt sorted.txt</kbd>
+bubblesort.s: 1142 bytes
+print_bigger.s: 1140 bytes
+swap_numbers.s: 1173 bytes
+unordered.s: 791 bytes
+numbers1.txt: 59 bytes
+numbers2.txt: 55 bytes
+sorted.txt: 21 bytes
+Total: 4381 bytes
+</pre>
+<aside class="hint">
+The <a href="{{url_root}}code/files/#stat.c">stat.c</a> prints the file size in bytes.
+<p>
+The number of bytes in  a file will not fit in an <em>int</em>.
+</p></aside>
+<aside class="hint">
+You can assume only ordinary files (not directories, links, ...) are specified as arguments.
+</aside>
+</p></p></p>

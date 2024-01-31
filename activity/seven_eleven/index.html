@@ -1,0 +1,48 @@
+<p>
+In the files for this lab,
+you have been given <code>seven_eleven.s</code>,
+a MIPS assembler program
+which reads a number and prints 42:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f seven_eleven.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>13</kbd>
+42
+</pre>
+<p>
+Add code to <code>seven_eleven.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.cp/seven_eleven.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f seven_eleven.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter number: <kbd>15</kbd>
+7
+11
+14
+<kbd is="sh">1521 spim -f seven_eleven.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter number: <kbd>42</kbd>
+7
+11
+14
+21
+22
+28
+33
+35
+</pre>
+<aside class="hint">
+<p>
+Make sure you understand the <a href="{{url_root}}code/mips_control/#odd_even.s">odd_even.s</a>
+and <a href="{{url_root}}code/mips_control/#print_10.s">print_10.s</a> lecture examples.
+<p>
+Start by choosing which register you will use for each variable.
+</p></p></aside>
+</p></p></p>

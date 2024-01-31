@@ -1,0 +1,13 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+files=short_swap.c test_short_swap.c
+
+
+0 command=./short_swap 0x1234 description="0x1234" expected_stdout="short_swap(0x1234) returned 0x3412\n"
+1 command=./short_swap 0xfffe description="0xfffe" expected_stdout="short_swap(0xfffe) returned 0xfeff\n"
+2 command=./short_swap 0x0201 description="0x0201" expected_stdout="short_swap(0x0201) returned 0x0102\n"
+3 command=./short_swap 0x01ff description="0x01ff" expected_stdout="short_swap(0x01ff) returned 0xff01\n"
+4 command=./short_swap 0x0108 description="0x0108" expected_stdout="short_swap(0x0108) returned 0x0801\n"
+5 command=./short_swap 0xff01 description="0xff01" expected_stdout="short_swap(0xff01) returned 0x01ff\n"
+6 command=./short_swap 0x0801 description="0x0801" expected_stdout="short_swap(0x0801) returned 0x0108\n"

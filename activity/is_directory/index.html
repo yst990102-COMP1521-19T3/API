@@ -1,0 +1,35 @@
+<p>
+Write a C program, <code>is_directory.c</code>, which takes one argument a pathname.
+<p>
+If the pathname exists and is a directory, it should print <b>1</b>, otherwise it should print <b>0</b>.
+
+<pre is="tty">
+<kbd is="sh">dcc is_directory.c -o is_directory</kbd>
+<kbd is="sh">mkdir test_directory</kbd>
+<kbd is="sh">echo &gt;test_file</kbd>
+<kbd is="sh">./is_directory test_directory</kbd>
+1
+<kbd is="sh">./is_directory test_file</kbd>
+0
+<kbd is="sh">./is_directory non_existant_path</kbd>
+0
+<kbd is="sh">./is_directory /home/cs1521/public_html</kbd>
+1
+<kbd is="sh">./is_directory /etc/resolv.conf</kbd>
+0
+</pre>
+<aside class="note">
+You can assume the pathname is not a symbolic link.
+<p>
+
+No error checking is required.
+<p>
+Your program can assume it is always a single argument.
+<p>
+It should always one line of output.  The line of output should contain only 0 or 1.
+<p>
+Your solution must be in C only.
+<p>
+You are not permitted to run external programs.  You are not permitted to use  system, popen, posix_spawn, fork or exec.
+</p></p></p></p></p></aside>
+</p></p>

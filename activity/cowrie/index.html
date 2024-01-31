@@ -1,0 +1,494 @@
+{% set here_path = public_html_directory + "/" + g.variables.unsw_session + "/" + directory_relative_pathname %}
+
+{% import "templates/change_log.mac" as ChangeLog %}
+
+{% set changelog = [
+    {
+        'version': '1.0',
+        'datetime': '2019-11-09 11:59:59',
+        'changes': [
+            "Initial release",
+        ],
+    },
+    {
+        'version': '1.1',
+        'datetime': '2019-11-09 15:00:00',
+        'changes': [
+            "Extra information added to spec",
+        ],
+    },
+    {
+        'version': '1.2',
+        'datetime': '2019-11-10 08:00:00',
+        'changes': [
+             "Supplied code changed to show use of strrchr to check for /",
+             "Various typos fixed in spec",
+             "Bugs in autotest fixed and more autotests added",
+             "Bug fixed in reference implementation handling of /",
+        ],
+    },
+    {
+        'version': '1.3',
+        'datetime': '2019-11-11 09:00:00',
+        'changes': [
+             "Description of history file clarified (reference to numbered removed)",
+             "Bug in reference implementation with history and globbing fixed",
+             "Bug in reference implementation with builtins in pipelines fixed",
+             "Requirement for commands with incorrect I/O redirection not to be added to history removed",
+             "Reference implementation simplifued to add all commands to history",
+        ],
+    },
+
+    {
+        'version': '1.4',
+        'datetime': '2019-11-11 10:00:00',
+        'changes': [
+              "Bug in reference implementation handling to ! fixed",
+              "Spec clarified regarding what ! adds to history",
+        ],
+    },
+
+    {
+        'version': '1.5',
+        'datetime': '2019-11-12 09:00:00',
+        'changes': [
+              "setlinebuf(stdout) added to main in supplied cowrie.c",
+              "autotests added for subsets 3-5",
+        ],
+    },
+
+    {
+        'version': '1.6',
+        'datetime': '2019-11-12 19:00:00',
+        'changes': [
+              "Added link to lecture example for glob.c",
+       ],
+    },
+
+    {
+        'version': '1.7',
+        'datetime': '2019-11-15 12:00:00',
+        'changes': [
+              "Bug in reference implementation setting of argv[0] fixed",
+              "autotests added",
+       ],
+    },
+
+    {
+        'version': '1.8',
+        'datetime': '2019-11-16 11:30:00',
+        'changes': [
+              "error message for attempting to execute a directory changed in reference implementation to be consistent with whabash asnd what's easiest to do (this error message won't be tested)",
+              "hint added about waitpid",
+       ],
+    },
+
+    {
+        'version': '1.9',
+        'datetime': '2019-11-17 18:30:00',
+        'changes': [
+              "explicit requirement for pipes added to subset 5",
+       ],
+    },
+] %}
+
+{{ ChangeLog.summary(changelog) }}
+
+{% set objectives = [
+        "to explore Linux process manipulation system calls",
+        "to further explore string manipulation in C",
+        "to further experience data structures in C",
+        "to build a very simple command-line interpreter",
+        "to explore writing C code to manipulate processes",
+        "to give you experience with interprocess communication (pipes)"
+] %}
+
+<h2>Aims</h2>
+<ul>
+{% for o in objectives %}
+<li>{{o}}
+{% endfor %}
+</li></ul>
+<h2>Introduction</h2>
+<p>
+Your task in this assignment is to write <b>cowrie</b>, a simple <a href="https://en.wikipedia.org/wiki/Shell_(computing)">shell</a>.
+<p>
+Shells (e.g. <em>bash</em>) can provide very complex functionality.
+<p>
+In this assignment you will implement a small but useful subset of the core functionality typical of a Unix/Linux shell.
+<p>
+You will be given a number of simplifying assumptions which make your task easier.
+
+<h2>Getting Started</h2>
+<p>
+Create a new directory for this assignment
+called <code>{{name}}</code>,
+change to this directory,
+and fetch the provided code
+by running these commands:
+
+<pre is="tty">
+<kbd is="sh">mkdir {{name}}</kbd>
+<kbd is="sh">cd {{name}}</kbd>
+<kbd is="sh">{{course_number}} fetch {{name}}</kbd>
+</pre>
+<code>cowrie.c</code> contains code to start the assignment.
+<p>
+It will compile and run, but the only functionality implemented is <code>exit</code>:
+
+<pre is="tty">
+<kbd is="sh">dcc cowrie.c -o cowrie</kbd>
+<kbd is="sh">./cowrie</kbd>
+cowrie&gt; <kbd>exit</kbd>
+<kbd is="sh"></kbd>
+</pre>
+<a href="{{activity_url}}files.cp/cowrie.c"><code>cowrie.c</code></a> does contain some functions that make your task much easier.
+
+<p>
+For example, the function <em>tokenizer</em>  breaks a string into words, using separators, making
+your task much simpler.
+
+
+<h2>Reference implementation</h2>
+
+There is a reference implementation available for this assignment which you use to clarify how your implementation should behave:
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>echo hello reference implementation</kbd>
+hello reference implementation
+/bin/echo exit status = 0
+cowrie&gt; <kbd>exit</kbd>
+<kbd is="sh"></kbd>
+</pre>
+<p>
+<h2>Cowrie Commands  - Subset 0 - cd/pwd</h2>
+Your next task is to add code to the function <code>execute_command</code>
+to implement builtin commands <code>cd</code> (change directory) and <code>pwd</code> (print current directory).
+Your next task is to add code to the function <code>execute_command</code>:
+
+{{ include_code("files.cp/cowrie.c", function_only='execute_command') }}
+
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>cd /tmp</kbd>
+cowrie&gt; <kbd>pwd</kbd>
+current directory is '/tmp'
+cowrie&gt; <kbd>cd /usr/local/bin</kbd>
+cowrie&gt; <kbd>pwd</kbd>
+current directory is '/usr/local/bin'
+</pre>
+
+If the cd command is given no argument it should change directory
+to the value specified in the HOME environment variable.
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>cd</kbd>
+cowrie&gt; <kbd>pwd</kbd>
+current directory is '/home/z555555'
+</pre>
+
+Note, your /home directory will be different to the example above.
+
+<aside class="hint">
+The lecture example <a href="{{url_root}}code/files/#my_cd.c">my_cd.c</a> shows how to use <code>chdir</code> to change directory.
+<p>
+The lecture example <a href="{{url_root}}code/files/#getcwd.c">getcwd.c</a>  shows how to print your current directory.
+<p>
+The lecture example <a href="{{url_root}}code/processes/#getenv.c">getenv.c</a>  shows how to get the value of an environment variable.
+</p></p></aside>
+<h2>Cowrie Commands  - Subset 1 - running commands</h2>
+
+Your next task is to add code to the function <code>execute_command</code> to execute commands which are not builtin.
+<p>
+<code>execute_command</code> is given the command that has been entered as an array of words.
+<p>
+You need to find the executable_file corresponding to the command and execute it, for example:
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>date</kbd>
+Fri  8 Nov 12:07:50 AEDT 2019
+/bin/date exit status = 0
+</pre>
+
+The first word of the command specifies a program to run.
+<p>
+The parameter <code>path</code> specifies a list of directories to search for the corresponding executable file.
+<p>
+
+{{ include_code("files.cp/cowrie.c", function_only='is_executable') }}
+
+A command may have multiple words which should be passed as the program's <code>argv</code>, for example:
+<p>
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>file cowrie.c</kbd>
+cowrie.c: C source, ASCII text
+/usr/bin/file exit status = 0
+cowrie&gt; <kbd>echo this command has 4 arguments</kbd>
+this command has 4 arguments
+/bin/echo exit status = 0
+cowrie&gt; <kbd>echo this command has 4 arguments</kbd>
+this command has 4 arguments
+/bin/echo exit status = 0
+cowrie&gt; <kbd>cp cowrie.c cowrie.c.backup</kbd>
+/bin/cp exit status = 0
+cowrie&gt; <kbd>ls cowrie.c.backup</kbd>
+cowrie.c.backup
+/bin/ls exit status = 0
+cowrie&gt; <kbd>hdhhfdhjf</kbd>
+hdhhfdhjf: command not found
+</pre>
+<p>
+Note the exit status of a command is printed when it exits:
+
+<p>
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; ls cow.c
+ls: cannot access 'cow.c': No such file or directory
+bin/ls exit status = 2
+</pre>
+
+If a command contains a '/' you don't search for it in the path directories, for example:
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; /home/cs1521/bin/spim</pre></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>
+Loaded: /home/cs1521/share/spim/exceptions.s
+(spim)
+
+<aside class="hint">
+The lecture example <a href="{{url_root}}code/processes/#spawn.c">spawn.c</a> shows how to run a program using <code>posix_spawn</code>.
+<p>
+Make sure you wait for the new process to finish  <a href="http://man7.org/linux/man-pages/man3/wait.3p.html"><code>wait_pid</code></a> may be useful - make sure sure you read about <code>WIFEXITED</code> and <code>WEXITSTATUS</code>.
+</p></aside>
+<h2>Cowrie Commands  - Subset 2 - History</h2>
+
+Your next task is to add code which saves every command executed.
+<p>
+Each command should be appended to the file <code>$HOME/.{{name}}_history</code>
+<p>
+You should add a built-in command <code>history</code> <i>n</i>
+which prints the last <i>n</i> commands.  If <i>n</i> is not specified it should default to 10.
+<p>
+You should add a built-in command <code>!</code> <i>n</i>
+which prints command <i>n</i> and then executes it.  If <i>n</i> is not specified the last command
+should be executed and printed.
+<p>
+<pre is="tty">
+<kbd is="sh">rm -f $HOME/.cowrie_history</kbd>
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; echo hello
+hello
+/bin/echo exit status = 0
+cowrie&gt; echo cowrie
+cowrie
+/bin/echo exit status = 0
+cowrie&gt; history
+0: echo hello
+1: echo cowrie
+cowrie&gt; !0
+echo hello
+hello
+/bin/echo exit status = 0
+cowrie&gt; !1
+echo cowrie
+cowrie
+/bin/echo exit status = 0
+cowrie&gt; !
+echo cowrie
+cowrie
+/bin/echo exit status = 0
+</pre>
+
+You can store commands in-memory, e.g. in an array, but you
+should also append each command immediately to the file <code>$HOME/.{{name}}_history</code>.
+<p>
+When appending commands put a space between each word and a '\n' after the command.
+This will often be different to the white-space the user actually entered.
+<p>
+For '!' commands the command it executes is added to the history file.
+'!'  never appears as a command in the history file.
+<aside class="hint">
+The <code>tokenize</code> function always returns <code>!</code> as a separate word so <code>!n</code> will always be
+returned as two words <code>!</code> and <code>n</code>
+</aside>
+<h2>Cowrie Commands  - Subset 3 - Globbing</h2>
+<p>
+
+If any of the characters
+<code>'*'</code>, <code>'?'</code>, <code>'['</code>, or <code>'~'</code>
+appears in a word that word should be replaced by all of the words matching that word
+using the <cite>glob(3)</cite> library function.
+This may result in the words list becoming longer than initially.
+<p>
+If there are no matches, use the word unchanged.
+This should be done before any of the actions described below.
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>cd /home/cs1521/public_html/19T3/code/mips_basics/</kbd>
+cowrie&gt; <kbd>echo *.c</kbd>
+i_love_mips.c
+/bin/echo exit status = 0
+cowrie&gt; <kbd>wc *mips*</kbd>
+  6  11  82 i_love_mips.c
+ 10  27 172 i_love_mips.s
+ 16  38 254 total
+/usr/bin/wc exit status = 0
+cowrie&gt; <kbd>ls *.[cs]</kbd>
+i_love_mips.c  i_love_mips.s
+/bin/ls exit status = 0
+</pre>
+<aside class="hint">
+Use <code>GLOB_NOCHECK|GLOB_TILDE</code>
+as the second parameter of the <cite>glob(3)</cite> function)</aside></p></p></p></p></p></p></p></p>
+<p>
+The lecture example <a href="{{url_root}}code/processes/#glob.c">glob.c</a>  shows how call glob
+</p>
+<h2>Cowrie Commands  - Subset 4 - I/O Re-direction</h2>
+<p>
+If the first two tokens of the command line are
+<code>&lt;</code> and a filename,
+the command should be executed with
+its standard input connected to the specified file.
+If the file does not exist, or is not readable,
+an error message should be printed.
+<p>
+Similarly the last two words of the command line are
+<code>&gt;</code> and a filename,
+the command should be executed with
+its standard output connected to the specified file.
+If the file  is not writeable, an error message should be printed.
+The file should be over-written if it exists.
+<p>
+If the last three words of the command line are <code>&gt;</code>,  <code>&gt;</code> and a filename,
+standard output should be appended to the file rater than the file being over-written.
+<p>
+An error message should be printed if <code>&gt;</code> or <code>&lt;</code> appear anywhere elsewhere on the command-line.
+<p>
+An error message should be printed if no command is specified to redirect.
+<p>
+An error message should be printed if a builtin command is specified with I/O redirection.
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>echo hello cowrie &gt;hello.txt</kbd>
+/bin/echo exit status = 0
+cowrie&gt; <kbd>cat hello.txt</kbd>
+hello cowrie
+/bin/cat exit status = 0
+cowrie&gt; <kbd>echo hello again &gt;&gt;hello.txt</kbd>
+/bin/echo exit status = 0
+cowrie&gt; <kbd>cat hello.txt</kbd>
+hello cowrie
+hello again
+/bin/cat exit status = 0
+cowrie&gt; <kbd>echo good bye cowrie &gt;hello.txt</kbd>
+/bin/echo exit status = 0
+cowrie&gt; <kbd>cat hello.txt</kbd>
+good bye
+/bin/cat exit status = 0
+cowrie&gt; <kbd>&lt; {{name}}.c wc -l</kbd>
+636
+/usr/bin/wc exit status = 0
+cowrie&gt; <kbd> wc -l {{name}}.c &gt;number_of_lines</kbd>
+/usr/bin/wc exit status = 0
+cowrie&gt; <kbd>cat number_of_lines</kbd>
+636 {{name}}.c
+/bin/cat exit status = 0
+</pre>
+<aside class="hint">
+The lecture examples <a href="{{url_root}}code/processes/#spawn_read_pipe.c">spawn_read_pipe.c</a> and  <a href="{{url_root}}code/processes/#spawn_read_pipe.c">spawn_read_pipe.c</a> show use of <code>posix_spawn_file_actions_adddup2</code> which you'll need to use.
+<p>
+The <code>tokenize</code> function always returns <code>&lt;</code> and <code>&gt;</code> as a separate words, for example <code>&gt;file</code> will be returned as two words and <code>&gt;&gt;file</code> will be returned as three words.
+</p></aside>
+<h2>Cowrie Commands  - Subset 5 - Pipes</h2>
+
+If a  <code>|</code> appears between commands the stdout of the first command should be connected to the stdin
+of the second command. For example:
+
+<pre is="tty">
+<kbd is="sh">1521 cowrie</kbd>
+cowrie&gt; <kbd>cat {{name}}.c | wc -l </kbd>
+636
+/usr/bin/wc exit status = 0
+cowrie&gt; <kbd>&lt; {{name}}.c cat  | wc -l &gt;number_of_lines</kbd>
+/usr/bin/wc exit status = 0
+cowrie&gt; <kbd>cat number_of_lines</kbd>
+636
+/bin/cat exit status = 0
+cowrie&gt; <kbd>&lt; {{name}}.c cat  | grep include | wc -l &gt;number_of_includes</kbd>
+/usr/bin/wc exit status = 0
+cowrie&gt; <kbd>cat number_of_includes</kbd>
+18
+/bin/cat exit status = 0
+</pre>
+<aside class="hint">
+The lecture examples <a href="{{url_root}}code/processes/#spawn_read_pipe.c">spawn_read_pipe.c</a> and  <a href="{{url_root}}code/processes/#spawn_read_pipe.c">spawn_read_pipe.c</a> show use of the functions <code>pipe</code>,  <code>posix_spawn_file_actions_adddup2</code> and <code>posix_spawn_file_actions_addclose</code> which you'll need to use.
+<p>
+The <code>tokenize</code> function always returns <code>|</code> as a separate word, so for example <code>cat|grep</code> will be returned as three words.
+</p></aside>
+<h2>Tests</h2>
+
+As usual you are expected do your own testing
+but some autotests are available to help you get started:
+
+<pre is="tty">
+<kbd is="sh">1521 autotest cowrie</kbd>
+...
+</pre>
+<p>
+If you create extra <code>.c</code> or <code>.h</code> files,
+you will need to supply them explicitly to autotest; for example:
+
+<pre is="tty">
+<kbd is="sh">1521 autotest cowrie extra1.c extra2.c extra3.h</kbd>
+...
+</pre>
+<h2>Assumptions and Clarifications</h2>
+<p>
+Like all good programmers,
+you should make as few assumptions as possible.
+
+
+<p>
+Your submitted code must be a single C program only.
+You may not submit code in other languages.
+<p>
+You are only permitted to use the function <code>posix_spawn</code> to run processes.
+You are not permitted to use functions such as <code>posix_spawnp</code>, <code>system</code>, <code>popen</code>,
+<code>fork</code>, <code>vfork</code>, <code>clone</code> or any of the  <code>exec</code> functions.
+<p>
+Subset 5 can not be implemented with temporary files.  It must be implemented using pipes.
+<p>
+You may not use functions from non-default libraries;
+in other words, you cannot use dcc's <code>-l</code> flag.
+
+<p>
+If you need clarification on
+what you can and cannot use or do for this assignment,
+ask in the class forum.
+
+<p>
+You are required to submit
+intermediate versions of your assignment.
+See below for details.
+
+<p>
+Your program must not require extra compile options.
+It must compile with <code>dcc *.c -o cowrie</code>,
+and it will be run with <code>dcc</code> when marking.
+Run-time errors from illegal C will cause your code to fail automarking.
+<p>
+If your program writes out debugging output,
+it will fail automarking tests:
+make sure you disable debugging output before submission.
+
+<h2>Change Log</h2>
+{{ ChangeLog.render(changelog) }}
+</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>

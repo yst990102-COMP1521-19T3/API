@@ -1,0 +1,20 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+command=1521 spim -f grade.s
+files=grade.s
+
+
+0 stdin="48\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: FL\n"
+1 stdin="51\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: PS\n"
+2 stdin="60\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: PS\n"
+3 stdin="64\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: PS\n"
+4 stdin="66\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: CR\n"
+5 stdin="70\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: CR\n"
+6 stdin="80\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: DN\n"
+7 stdin="85\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: HD\n"
+8 stdin="90\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: HD\n"
+9 stdin="99\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a mark: HD\n"

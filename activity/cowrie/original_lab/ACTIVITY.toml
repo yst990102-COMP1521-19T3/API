@@ -1,0 +1,17 @@
+activity   = 'lab08'
+objectives = [
+    'to explore Linux process manipulation system calls',
+    'to further explore string manipulation in C',
+    'to build a very simple command-line interpreter'
+]
+
+accept     = [ 'mysh.c' ]
+
+[provide]
+"Makefile" = "a set of dependencies used to control compilation"
+"mysh.c"   = "skeleton code for your shell"
+
+[deadline]
+open = "2019-07-20 00:00:00"
+due  = "2019-07-29 08:59:59"
+end  = "2019-08-05 08:59:59"

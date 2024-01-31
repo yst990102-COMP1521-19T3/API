@@ -1,0 +1,51 @@
+You have been given <a href="{{activity_url}}files.cp/compile_if_needed.c"><code>compile_if_needed.c</code></a>,
+a C program that given the pathname of single file C programs compiles them. For example:
+
+<pre is="tty">
+<kbd is="sh">dcc compile_if_needed.c -o compile_if_needed</kbd>
+<kbd is="sh">./compile_if_needed file_sizes.c file_modes.c</kbd>
+/usr/local/bin/dcc file_modes.c -o file_modes
+/usr/local/bin/dcc file_sizes.c -o file_sizes
+</pre>
+
+Unfortunately the code you have been given is inefficient.  It recompiles the C file even if this is not necessary.
+<p>
+Modify <code>compile_if_needed.c</code> so that it only compiles C files if necessary.
+<p>
+A compilation is necessary if the binary doesn't exist.
+<p>
+A compilation is also necessary if the C file has been changed since the last compilation.
+In other words, if the modification time of the C file is more recent than the binary.
+<p>
+Follow the output format below.
+
+<pre is="tty">
+<kbd is="sh">./compile_if_needed file_sizes.c file_modes.c</kbd>
+/usr/local/bin/dcc file_modes.c -o file_modes
+/usr/local/bin/dcc file_sizes.c -o file_sizes
+<kbd is="sh">./compile_if_needed file_sizes.c file_modes.c</kbd>
+file_modes.c does not need compiling
+file_sizes.c does not need compiling
+<kbd is="sh">rm file_sizes</kbd>
+<kbd is="sh">./compile_if_needed file_sizes.c file_modes.c</kbd>
+file_modes.c does not need compiling
+/usr/local/bin/dcc file_sizes.c -o file_sizes
+<kbd is="sh">echo &gt;&gt; file_sizes.c # add a new-line to file_sizes.c</kbd>
+<kbd is="sh">./compile_if_needed file_sizes.c file_modes.c</kbd>
+file_modes.c does not need compiling
+/usr/local/bin/dcc file_sizes.c -o file_sizes
+<kbd is="sh">./compile_if_needed file_sizes.c file_modes.c</kbd>
+file_modes.c does not need compiling
+file_sizes.c does not need compiling
+<kbd is="sh">./compile_if_needed file_sizes.c file_modes.c</kbd>
+file_modes.c does not need compiling
+file_sizes.c does not need compiling
+</pre>
+<aside class="hint">
+The <a href="{{url_root}}code/files/#stat.c">stat.c</a>
+lecture example prints a file modification time.
+</aside>
+<aside class="note">
+BTW this is essentially what the program <em>make</em> does.
+</aside>
+</p></p></p></p>

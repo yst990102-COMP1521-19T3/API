@@ -1,0 +1,4 @@
+objectives = [
+	"to implement a simulation in C",
+	"to investigate virtual memory page replacement"
+]

@@ -1,0 +1,59 @@
+<h4>Reminder: Float Representation</h4>
+<figure class="text-center">
+<img class="img img-fluid p-2" src="{{activity_url}}float.png"/>
+</figure>
+<h4>Exercise Description</h4>
+
+{{ with_file("files.cp/sign_flip.c", change_function="sign_flip") }}
+
+<p>
+The function <code>sign_flip</code> is given
+the bits of a <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">float</a> as type <code>uint32_t</code>.
+Add code so that it changes the sign of  the number.
+If it is positive it should be changed to negative.
+If it is  negative it should be changed to  positive.
+<p>
+In other words change (flip) bit 31.
+
+<p>
+This function must be implemented only using bit operations and integer comparisons.
+<p>
+Once this functions is completed,
+you should get output like:
+
+<pre is="tty">
+<kbd is="sh">./sign_flip -42</kbd>
+sign_flip(-42) returned 42
+<kbd is="sh">./sign_flip 3.14159</kbd>
+sign_flip(3.14159012) returned -3.14159012
+<kbd is="sh">./sign_flip -2.718</kbd>
+sign_flip(-2.71799994) returned 2.71799994
+<kbd is="sh">./sign_flip -inf</kbd>
+sign_flip(-inf) returned inf
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make sign_flip'</span>
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to perform floating-point operations,
+or to use variables of type <code>float</code> or <code>double</code>,
+or to use multiplication or division.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>sign_flip</code>' prototype (its return type and argument types).
+
+<li><p>
+<em>iff</em> stands for <q>if and only if</q>.
+</p></li></p></li></p></li></p></li></ul>
+</p></p></p></p></p>

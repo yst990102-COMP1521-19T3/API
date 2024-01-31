@@ -1,0 +1,45 @@
+{{ copy_a_file("files/packed_bcd.c", change_function="packed_bcd") }}
+
+<p>
+Add code to the function <code>packed_bcd</code>
+so that, given an eight-digit <a href="https://en.wikipedia.org/wiki/Binary-coded_decimal">packed binary-coded decimal</a> value,
+it returns the corresponding integer.
+
+<p>
+In packed binary-coded decimal format,
+each 4 bits holds 1 decimal value (0 to 9),
+so each byte contains 2 decimal digits.
+For example:
+
+<pre is="tty">
+<kbd is="sh">./packed_bcd 66</kbd>         <span class="comment"># ... == 0x42</span>
+42
+<kbd is="sh">./packed_bcd 39321</kbd>      <span class="comment"># ... == 0x9999</span>
+9999
+<kbd is="sh">./packed_bcd 1111638594</kbd> <span class="comment"># ... == 0x42424242</span>
+42424242
+</pre>
+<aside class="hint">
+<p>
+Write a loop which extracts each <abbr>BCD</abbr> digit
+using the bitwise operators <code>&amp;</code> and <code>&gt;&gt;</code>.
+</p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+<code>packed_bcd</code> should return an integer value between 0 and 99999999 inclusive.
+
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted to call any functions from the C library.
+
+<li><p>
+You are not permitted
+to change the <code>main</code> function you have been given, or
+to change <code>packed_bcd</code>'s prototype
+(its return type and argument types).
+</p></li></p></li></p></li></p></li></ul>
+</aside>
+</p></p>

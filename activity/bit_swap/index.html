@@ -1,0 +1,48 @@
+{{ with_file("files.cp/bit_swap.c", change_function="bit_swap") }}
+
+<p>
+Add code to the function <code>bit_swap</code> so that,
+given a <code>uint64_t</code> value,
+it returns the same value with each pair of bits swapped:
+bit 0 should be swapped with bit 1,
+bit 2 should be swapped with bit 3,
+bit 4 should be swapped with bit 5, and so on.
+You should use bitwise operators to do this.
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">./bit_swap 0x1111111111111111</kbd>
+bit_swap(0x1111111111111111) returned 0x2222222222222222
+<kbd is="sh">./bit_swap 0x1111888855553333</kbd>
+bit_swap(0x1111888855553333) returned 0x22224444aaaa3333
+<kbd is="sh">./bit_swap 0x0000000400000000</kbd>
+bit_swap(0x0000000400000000) returned 0x0000000800000000
+<kbd is="sh">./bit_swap 0x8000000000000001</kbd>
+bit_swap(0x8000000000000001) returned 0x4000000000000002
+<kbd is="sh">./bit_swap 0x123456789abcdef0</kbd>
+bit_swap(0x123456789abcdef0) returned 0x2138a9b4657cedf0
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make bit_swap'</span>
+</pre>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to use division (<code>/</code>), multiplication (<code>*</code>), or modulus (<code>%</code>).
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>bit_swap</code>'s prototype (its return type and argument types).
+</p></li></p></li></p></li></ul>
+</aside>
+</p></p></p>

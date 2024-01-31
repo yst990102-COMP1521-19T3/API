@@ -1,0 +1,17 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+command=1521 spim -f min.s
+files=min.s
+
+
+0 stdin="15\n5\n" description="15 5" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n5\n"
+1 stdin="5\n5\n" description="5 5" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n5\n"
+2 stdin="63512\n15589\n" description="63512 15589" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n15589\n"
+3 stdin="196\n32334\n" description="196 32334" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n196\n"
+4 stdin="19228\n21673\n" description="19228 21673" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n19228\n"
+5 stdin="961\n46514\n" description="961 46514" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n961\n"
+6 stdin="61168\n1837\n" description="61168 1837" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\n1837\n"

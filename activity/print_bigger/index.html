@@ -1,0 +1,73 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/print_bigger.s"><code>print_bigger.s</code></a>,
+a MIPS assembler program that
+reads 10 numbers and then prints them:
+
+<pre is="tty">
+<kbd is="sh">cat numbers1.txt</kbd>
+12086
+24363
+47363
+64268
+34001
+6800
+60742
+48867
+26002
+54999
+<kbd is="sh">1521 spim -f print_bigger.s &lt;numbers1.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+12086
+24363
+47363
+64268
+34001
+6800
+60742
+48867
+26002
+54999
+</pre>
+<p>
+Add code to <code>print_bigger.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/print_bigger.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f print_bigger.s &lt;numbers1.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+64268
+60742
+54999
+<kbd is="sh">cat numbers2.txt</kbd>
+53906
+9064
+40906
+4504
+4774
+7892
+15334
+45515
+55387
+5681
+<kbd is="sh">1521 spim -f print_bigger.s &lt;numbers2.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+53906
+9064
+40906
+7892
+15334
+45515
+55387
+5681
+</pre>
+<aside class="hint">
+<p>
+Start by choosing which register you will use for each variable.
+</p></aside>
+</p></p></p>

@@ -1,0 +1,88 @@
+{{ copy_a_file("files/bcd_arithmetic.c") }}
+
+<p>
+Add code to the functions
+<code>bcd_add</code>,
+<code>bcd_subtract</code>,
+<code>bcd_multiply</code>, and
+<code>bcd_divide</code> so that,
+given two arbitrary-length <a href="https://en.wikipedia.org/wiki/Binary-coded_decimal">binary-coded decimal</a> (<abbr>BCD</abbr>) numbers,
+they return the result of
+the corresponding arithmetic operation.
+For example:
+
+<pre is="tty">
+<kbd is="sh">./bcd_arithmetic 1123456789123456789 - 1123456789123456788</kbd>
+1
+<kbd is="sh">./bcd_arithmetic 123456789123456789 '*' 123456789123456789</kbd>
+15241578780673678515622620750190521
+<kbd is="sh">./bcd_arithmetic 15241578780673678515622620750190521 / 123456789123456789</kbd>
+123456789123456789
+<kbd is="sh">./bcd_arithmetic 123456789 '*' 987654321 +  987654321 / 1234</kbd>
+121932631113435637
+<kbd is="sh">./bcd_arithmetic 14 / 5</kbd>
+2
+</pre>
+<aside class="hint">
+<p>
+The code you are given already handles '+', '-', '*', and '/',
+and calls
+<code>bcd_add</code>,
+<code>bcd_subtract</code>,
+<code>bcd_multiply</code>, and
+<code>bcd_divide</code> respectively.
+You don't need to understand this code to do the exercises,
+though you will find it interesting to read.
+You only need to implement the four arithmetic functions.
+
+<p>
+Use <cite>realloc(3)</cite> to grow an array.
+
+<p>
+You could use Python (for example)
+to check what the value of an expression is,
+(though you don't need to quote the <code>*</code>,
+and you need to use <code>//</code> to get integer division):
+
+<pre is="tty">
+<kbd is="sh">python3 -i</kbd>
+Python 3.7.3 (default, Apr  3 2019, 05:39:12) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+<kbd data-prompt="&gt;&gt;&gt;">123456789 * 987654321 + 987654321 // 1234</kbd>
+121932631113435637
+</pre>
+</p></p></p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You can assume the results of subtraction are non-negative.
+
+<li><p>
+You can assume that divisors will be non-zero.
+
+<li><p>
+Integer division should yield only
+the integer part of the result.
+In other words, truncate towards zero; do not round.
+
+<li><p>
+You may define and call your own functions, if you wish.
+
+<li><p>
+You are not permitted to call any functions from the C library,
+other than <cite>malloc(3)</cite> and <cite>realloc(3)</cite>.
+
+<li><p>
+You are not permitted
+to change the <code>main</code> function,
+to change any other functions you have been given,
+to change the type <code>big_bcd_t</code>, or
+to change the return type or argument types of
+<code>bcd_add</code>,
+<code>bcd_subtract</code>,
+<code>bcd_multiply</code>, or
+<code>bcd_divide</code>.
+</p></li></p></li></p></li></p></li></p></li></p></li></ul>
+</aside>
+</p>

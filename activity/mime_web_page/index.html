@@ -1,0 +1,45 @@
+In the previous exercise we assumed the file being served contain HTML
+and specified <code>text/html</code> in the header as the <a href="https://en.wikipedia.org/wiki/Media_type">mime type</a>.
+<p>
+When serving a file web servers when servers commonly, in the absence of special directives,
+infer the content type to return from a files  <a href="https://en.wikipedia.org/wiki/Filename_extension">extension</a>.
+<p>
+For example, give the pathname "picture.jpg",  the "jpg" extension would be used to determine the content type (in the absence of other directives).
+<p>
+On Unix-like systems the file <code>/etc/mime.types</code> lists for each mime-type one or more extensions that
+should be assumed to correspond to this mime-type.
+<p>
+Your task in this exercise is to implement this function:
+
+{{ with_file("files.cp/mime_web_page.c", change_function="mime_web_page") }}
+
+<p>
+Compile it with :
+<pre is="tty">
+<kbd is="sh">dcc mime_web_server.c serve_web_page.c -o web_server</kbd>
+<kbd is="sh">./web_server</kbd>
+
+From your web browser test these URLs:
+http://localhost:32517/xkcd_303.jpg
+http://localhost:32517/xkcd_742.png
+http://localhost:32517/bird.html
+
+</pre>
+<p>
+The first should should you relevant XKCD cartoons.
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make mime_web_page'</span>
+</pre>
+<aside class="note">
+You are not-permitted to hard-code mime-type in your code.
+<p>
+You may define and call your own functions if you wish.
+<p>
+You are not permitted
+   to change the functions in <code>mime_web_server.c</code>   you have been given,
+or to change <code>mime_web_page</code>'s prototype (its return type and argument types).
+
+</p></p></aside>
+</p></p></p></p></p></p></p>

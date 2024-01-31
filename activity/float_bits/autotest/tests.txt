@@ -1,0 +1,18 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+compiler_args=-Dmain=_main autotest_float_bits.c float_bits.c -o float_bits
+files=float_bits.c
+
+
+0 command=./float_bits 8 expected_stdout="float_bits(8) returned\nsign=0x0\nexponent=0x82\nfraction=0x000000\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 0\n"
+1 command=./float_bits 3.99 expected_stdout="float_bits(3.99000001) returned\nsign=0x0\nexponent=0x80\nfraction=0x7f5c29\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 0\n"
+2 command=./float_bits 0.748 expected_stdout="float_bits(0.748000026) returned\nsign=0x0\nexponent=0x7e\nfraction=0x3f7cee\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 0\n"
+3 command=./float_bits -0.749 expected_stdout="float_bits(-0.749000013) returned\nsign=0x1\nexponent=0x7e\nfraction=0x3fbe77\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 0\n"
+4 command=./float_bits 4.298765432e-31 expected_stdout="float_bits(4.29876544e-31) returned\nsign=0x0\nexponent=0x1a\nfraction=0x0b80bf\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 0\n"
+5 command=./float_bits 9.91234567e+37 expected_stdout="float_bits(9.91234519e+37) returned\nsign=0x0\nexponent=0xfd\nfraction=0x1524f7\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 0\n"
+6 command=./float_bits inf expected_stdout="float_bits(inf) returned\nsign=0x0\nexponent=0xff\nfraction=0x000000\nis_nan returned 0\nis_positive_infinity returned 1\nis_negative_infinity returned 0\nis_zero returned 0\n"
+7 command=./float_bits -inf expected_stdout="float_bits(-inf) returned\nsign=0x1\nexponent=0xff\nfraction=0x000000\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 1\nis_zero returned 0\n"
+8 command=./float_bits 0.0 expected_stdout="float_bits(0) returned\nsign=0x0\nexponent=0x00\nfraction=0x000000\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 1\n"
+9 command=./float_bits -0.0 expected_stdout="float_bits(-0) returned\nsign=0x1\nexponent=0x00\nfraction=0x000000\nis_nan returned 0\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 1\n"
+10 command=./float_bits NaN expected_stdout="float_bits(nan) returned\nsign=0x0\nexponent=0xff\nfraction=0x400000\nis_nan returned 1\nis_positive_infinity returned 0\nis_negative_infinity returned 0\nis_zero returned 0\n"

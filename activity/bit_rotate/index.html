@@ -1,0 +1,44 @@
+{{ copy_a_file("files.cp/bit_rotate.c", change_function="bit_rotate") }}
+
+<p>
+The function <code>bit_rotate</code> is given  an int <b>n</b> and a 16-bit value as type <b>uint16_t</b>.
+
+Add code so that it returns the value with its bits rotated left <b>n</b> times.
+<p>
+When rotating a 16-bit value left one position, the value of bit 15 is moved to bit 0, the value of bit 0  to bit 1, the value of 1 to bit 2 ...
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">./bit_rotate 5 0x0001</kbd>
+bit_rotate(5, 0x0001) returned 0x0020
+<kbd is="sh">./bit_rotate 15 0x0001</kbd>
+bit_rotate(15, 0x0001) returned 0x8000
+<kbd is="sh">./bit_rotate 18 0x0001</kbd>
+bit_rotate(18, 0x0001) returned 0x0004
+<kbd is="sh">./bit_rotate -3 0x0001</kbd>
+bit_rotate(-3, 0x0001) returned 0x2000
+<kbd is="sh">./bit_rotate 8 0x1234</kbd>
+bit_rotate(8, 0x1234) returned 0x3412
+<kbd is="sh">./bit_rotate 1 0xbeef</kbd>
+bit_rotate(1, 0xbeef) returned 0x7ddf
+<kbd is="sh">./bit_rotate 1000 0xdead</kbd>
+bit_rotate(1000, 0xdead) returned 0xadde
+<kbd is="sh">./bit_rotate -42 0xfeed</kbd>
+bit_rotate(-42, 0xfeed) returned 0xbb7f
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted to call any functions from the C library.
+
+<li><p>
+You are not permitted
+to change the <code>main</code> function you have been given, or
+to change <code>bit_rotate</code>'s prototype
+(its return type and argument types).
+</p></li></p></li></p></li></ul>
+</p></p></p>

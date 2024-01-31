@@ -1,0 +1,3 @@
+#!/bin/sh
+echo I am /home/cs1521/test_bin/expr and was given these arguments "$@"
+

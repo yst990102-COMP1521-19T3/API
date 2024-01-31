@@ -1,0 +1,15 @@
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+files=leave_only_ascii.c
+command=./leave_only_ascii
+shell=1
+
+0 command="echo -e '\xF2' >test2; ./leave_only_ascii test2" expected_file_name=test2
+
+1 command="echo -e 'hello\xABwo\xEErld' >test3; ./leave_only_ascii test3" expected_file_name=test3
+
+2 command="./leave_only_ascii binary1" expected_file_name=binary1
+
+3 command="./leave_only_ascii binary2" expected_file_name=binary2

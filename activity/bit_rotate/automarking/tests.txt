@@ -1,0 +1,23 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+compiler_args=-Dmain=_main autotest_bit_rotate.c bit_rotate.c -o bit_rotate
+files=bit_rotate.c
+
+
+0 command=./bit_rotate 1 0xa7c5 description="bit_rotate(1, 0xa7c5)" expected_stdout="bit_rotate(1, 0xa7c5) returned 0x4f8b\n"
+1 command=./bit_rotate 11 0xa7c5 description="bit_rotate(11, 0xa7c5)" expected_stdout="bit_rotate(11, 0xa7c5) returned 0x2d3e\n"
+2 command=./bit_rotate 34 0xa7c5 description="bit_rotate(34, 0xa7c5)" expected_stdout="bit_rotate(34, 0xa7c5) returned 0x9f16\n"
+3 command=./bit_rotate 45 0xa7c5 description="bit_rotate(45, 0xa7c5)" expected_stdout="bit_rotate(45, 0xa7c5) returned 0xb4f8\n"
+4 command=./bit_rotate -2 0xa7c5 description="bit_rotate(-2, 0xa7c5)" expected_stdout="bit_rotate(-2, 0xa7c5) returned 0x69f1\n"
+5 command=./bit_rotate -13 0xa7c5 description="bit_rotate(-13, 0xa7c5)" expected_stdout="bit_rotate(-13, 0xa7c5) returned 0x3e2d\n"
+6 command=./bit_rotate -24 0xa7c5 description="bit_rotate(-24, 0xa7c5)" expected_stdout="bit_rotate(-24, 0xa7c5) returned 0xc5a7\n"
+7 command=./bit_rotate -46 0xa7c5 description="bit_rotate(-46, 0xa7c5)" expected_stdout="bit_rotate(-46, 0xa7c5) returned 0x9f16\n"
+8 command=./bit_rotate 0 0x1334 description="bit_rotate(0, 0x1334)" expected_stdout="bit_rotate(0, 0x1334) returned 0x1334\n"
+9 command=./bit_rotate 11 0xfaff description="bit_rotate(11, 0xfaff)" expected_stdout="bit_rotate(11, 0xfaff) returned 0xffd7\n"
+10 command=./bit_rotate -11 0x0010 description="bit_rotate(-11, 0x0010)" expected_stdout="bit_rotate(-11, 0x0010) returned 0x0200\n"
+11 command=./bit_rotate -1111 0x6578 description="bit_rotate(-1111, 0x6578)" expected_stdout="bit_rotate(-1111, 0x6578) returned 0xf0ca\n"
+12 command=./bit_rotate 2222 0x5765 description="bit_rotate(2222, 0x5765)" expected_stdout="bit_rotate(2222, 0x5765) returned 0x55d9\n"

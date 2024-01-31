@@ -1,0 +1,89 @@
+<p>
+Your task is a simple simulation of virtual memory pages.
+<p>
+Write a C program, <code>page_table.c</code>, which takes two arguments, both integers.
+<p>
+This will be respectively the size in pages of simulated physical memory and
+and  the size in pages of simulated virtual memory.
+<p>
+<code>page_table.c</code> should then read from stdin until EOF.
+<p>
+Each line will contains a letter describing an action and the number of a virtual page.
+<p>
+<code>page_table.c</code> should print one line of output for
+indicate what action occurs with a phyical memory of the given size and LRU replacement.
+<p>
+An action will be described by one of these 5 letters.
+
+<ul>
+<li><b>R</b> make page available for read access
+<li><b>W</b> make page available for write access
+<li><b>U</b> make page no longer available for access
+<li><b>r</b> make a read access to a page
+<li><b>w</b> make a write access to a page
+</li></li></li></li></li></ul>
+
+Page accesses are checked:
+
+<pre is="tty">
+<kbd is="sh">dcc page_table.c -o page_table</kbd>
+<kbd is="sh">./page_table 4 6</kbd>
+Simulating 4 pages of physical memory, 6 pages of virtual memory
+<kbd>r 0</kbd>
+Time 0: virtual page 0  - read access - illegal
+<kbd>R 0</kbd>
+Time 1: virtual page 0 mapped read-only
+<kbd>r 0</kbd>
+Time 2: virtual page 0  - read access - loaded to physical page 0
+<kbd>r 0</kbd>
+Time 3: virtual page 0  - read access - at physical page 0
+<kbd>w 0</kbd>
+Time 4: virtual page 0  - write access - illegal
+<kbd>W 0</kbd>
+Time 5: virtual page 0 mapped read-write
+<kbd>w 0</kbd>
+Time 6: virtual page 0  - write access - at physical page 0
+</pre>
+
+And a LRU replacement strategy should be implemented like the previous exercise, for example:
+
+<pre is="tty">
+<kbd is="sh">./page_table 4 6</kbd>
+Simulating 4 pages of physical memory, 6 pages of virtual memory
+<kbd>R 0</kbd>
+Time 0: virtual page 0 mapped read-only
+<kbd>R 1</kbd>
+Time 1: virtual page 1 mapped read-only
+<kbd>R 2</kbd>
+Time 2: virtual page 2 mapped read-only
+<kbd>W 3</kbd>
+Time 3: virtual page 3 mapped read-write
+<kbd>W 4</kbd>
+Time 4: virtual page 4 mapped read-write
+<kbd>r 0</kbd>
+Time 5: virtual page 0  - read access - loaded to physical page 0
+<kbd>r 1</kbd>
+Time 6: virtual page 1  - read access - loaded to physical page 1
+<kbd>w 4</kbd>
+Time 7: virtual page 4  - write access - loaded to physical page 2
+<kbd>w 3</kbd>
+Time 8: virtual page 3  - write access - loaded to physical page 3
+<kbd>r 0</kbd>
+Time 9: virtual page 0  - read access - at physical page 0
+<kbd>r 2</kbd>
+Time 10: virtual page 2  - read access -  virtual page 1 evicted - loaded to physical page 1
+</pre>
+
+A reference implementation is available by running
+
+<pre is="tty">
+<kbd is="sh">1521 page_table 4 6</kbd>
+Simulating 4 pages of physical memory, 6 pages of virtual memory
+...
+</pre>
+<aside class="note">
+No error checking is required.
+<p>
+Your program can assume it is always given the names of 2 valid arguments.
+</p></aside>
+</p></p></p></p></p></p></p>

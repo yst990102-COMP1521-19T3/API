@@ -1,0 +1,44 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/lookup.s"><code>lookup.s</code></a>,
+a MIPS assembler program that
+reads 2 numbers and then prints 42.
+
+<p>
+Add code to <code>lookup.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/lookup.c") }}
+
+<p>
+In other words,
+it should read 2 numbers and use them as array indices
+to print a value from a 2 dimensional array.
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f lookup.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter x: <kbd>5</kbd>
+Enter y: <kbd>8</kbd>
+4
+<kbd is="sh">1521 spim -f lookup.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter x: <kbd>41</kbd>
+Enter y: <kbd>23</kbd>
+2
+<kbd is="sh">1521 spim -f lookup.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter x: <kbd>0</kbd>
+Enter y: <kbd>0</kbd>
+9
+</pre>
+<aside class="hint">
+<p>
+The MIPS you given already has suitable directives
+to create an array equivalent to the one in the C program.
+</p></aside>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<p>
+You can assume both numbers read are valid array indices.
+</p></p></p></p>

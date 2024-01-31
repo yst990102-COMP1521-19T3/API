@@ -1,0 +1,8 @@
+objectives = [
+	"to learn how to manipulate objects in the Unix file system",
+	"to practice extracting information from the Linux Programmer's Manual",
+	"""
+	to explore the functions <cite>opendir(3)</cite>, <cite>readdir(3)</cite>,
+	<cite>closedir(3)</cite>, <cite>stat(2)</cite> and <cite>lstat(2)</cite>
+	"""
+]

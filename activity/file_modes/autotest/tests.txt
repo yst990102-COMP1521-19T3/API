@@ -1,0 +1,12 @@
+max_cpu=10
+files=file_modes.c
+shell=1
+
+pre_compile_command="chmod 644 p1 >p1; chmod 755 p2 >p2; chmod 666 p3 >p3; chmod 223 p4 >p4; mkdir -p -m 700 p5; mkdir -p -m 727 p6"
+pre_compile_command_shell=1
+
+0 command=./file_modes p1 expected_stdout="-rw-r--r-- p1\n"
+1 command=./file_modes p2 expected_stdout="-rwxr-xr-x p2\n"
+2 command=./file_modes p5 expected_stdout="drwx------ p5\n"
+3 command=./file_modes p6 expected_stdout="drwx-w-rwx p6\n"
+4 command=./file_modes p6 p5 p4 p1 p2 p3 expected_stdout="drwx-w-rwx p6\ndrwx------ p5\n--w--w--wx p4\n-rw-r--r-- p1\n-rwxr-xr-x p2\n-rw-rw-rw- p3\n"

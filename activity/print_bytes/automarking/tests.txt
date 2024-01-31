@@ -1,0 +1,20 @@
+max_cpu=10
+files=print_bytes.c
+command=./print_bytes
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+compare_only_characters=0123456789
+
+shell=1
+
+0 command="echo hello >test; ./print_bytes test" expected_stdout="byte    0: 104 0x68 'h'\nbyte    1: 101 0x65 'e'\nbyte    2: 108 0x6c 'l'\nbyte    3: 108 0x6c 'l'\nbyte    4: 111 0x6f 'o'\nbyte    5:  10 0x0a\n"
+
+1 command="echo 'bye' >test; ./print_bytes test" expected_stdout="byte    0:  98 0x62 'b'\nbyte    1: 121 0x79 'y'\nbyte    2: 101 0x65 'e'\nbyte    3:  10 0x0a\n"
+
+2 command="echo -n 'no newline' >test; ./print_bytes test" expected_stdout="byte    0: 110 0x6e 'n'\nbyte    1: 111 0x6f 'o'\nbyte    2:  32 0x20 ' '\nbyte    3: 110 0x6e 'n'\nbyte    4: 101 0x65 'e'\nbyte    5: 119 0x77 'w'\nbyte    6: 108 0x6c 'l'\nbyte    7: 105 0x69 'i'\nbyte    8: 110 0x6e 'n'\nbyte    9: 101 0x65 'e'\n"
+
+3 command="echo -e 'a\nbc\ndef\nghij\nklmno\npqrs\ntuv\nwx\ny\nz' >test; ./print_bytes test" expected_stdout="byte    0:  97 0x61 'a'\nbyte    1:  10 0x0a\nbyte    2:  98 0x62 'b'\nbyte    3:  99 0x63 'c'\nbyte    4:  10 0x0a\nbyte    5: 100 0x64 'd'\nbyte    6: 101 0x65 'e'\nbyte    7: 102 0x66 'f'\nbyte    8:  10 0x0a\nbyte    9: 103 0x67 'g'\nbyte   10: 104 0x68 'h'\nbyte   11: 105 0x69 'i'\nbyte   12: 106 0x6a 'j'\nbyte   13:  10 0x0a\nbyte   14: 107 0x6b 'k'\nbyte   15: 108 0x6c 'l'\nbyte   16: 109 0x6d 'm'\nbyte   17: 110 0x6e 'n'\nbyte   18: 111 0x6f 'o'\nbyte   19:  10 0x0a\nbyte   20: 112 0x70 'p'\nbyte   21: 113 0x71 'q'\nbyte   22: 114 0x72 'r'\nbyte   23: 115 0x73 's'\nbyte   24:  10 0x0a\nbyte   25: 116 0x74 't'\nbyte   26: 117 0x75 'u'\nbyte   27: 118 0x76 'v'\nbyte   28:  10 0x0a\nbyte   29: 119 0x77 'w'\nbyte   30: 120 0x78 'x'\nbyte   31:  10 0x0a\nbyte   32: 121 0x79 'y'\nbyte   33:  10 0x0a\nbyte   34: 122 0x7a 'z'\nbyte   35:  10 0x0a\n"
+
+
+4 command="echo -e 'a\xFFbc\xFEdef\xFDghij\x80klmno\x81pqrs\x09tuv\x08wx\x07y\x06z' >test; ./print_bytes test" expected_stdout="byte    0:  97 0x61 'a'\nbyte    1: 195 0xc3\nbyte    2: 191 0xbf\nbyte    3:  98 0x62 'b'\nbyte    4:  99 0x63 'c'\nbyte    5: 195 0xc3\nbyte    6: 190 0xbe\nbyte    7: 100 0x64 'd'\nbyte    8: 101 0x65 'e'\nbyte    9: 102 0x66 'f'\nbyte   10: 195 0xc3\nbyte   11: 189 0xbd\nbyte   12: 103 0x67 'g'\nbyte   13: 104 0x68 'h'\nbyte   14: 105 0x69 'i'\nbyte   15: 106 0x6a 'j'\nbyte   16: 194 0xc2\nbyte   17: 128 0x80\nbyte   18: 107 0x6b 'k'\nbyte   19: 108 0x6c 'l'\nbyte   20: 109 0x6d 'm'\nbyte   21: 110 0x6e 'n'\nbyte   22: 111 0x6f 'o'\nbyte   23: 194 0xc2\nbyte   24: 129 0x81\nbyte   25: 112 0x70 'p'\nbyte   26: 113 0x71 'q'\nbyte   27: 114 0x72 'r'\nbyte   28: 115 0x73 's'\nbyte   29:   9 0x09\nbyte   30: 116 0x74 't'\nbyte   31: 117 0x75 'u'\nbyte   32: 118 0x76 'v'\nbyte   33:   8 0x08\nbyte   34: 119 0x77 'w'\nbyte   35: 120 0x78 'x'\nbyte   36:   7 0x07\nbyte   37: 121 0x79 'y'\nbyte   38:   6 0x06\nbyte   39: 122 0x7a 'z'\nbyte   40:  10 0x0a\n"

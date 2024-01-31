@@ -1,0 +1,12 @@
+max_cpu=10
+files=compare_file.c
+command=./compare_file
+
+0 command=./compare_file binary1 binary2 expected_stdout="Files differ at byte 40\n"
+1 command=./compare_file binary2 binary1 expected_stdout="Files differ at byte 40\n"
+2 command=./compare_file binary1 binary3 expected_stdout="Files are identical\n"
+3 command=./compare_file file.c file.c expected_stdout="Files are identical\n"
+4 command=./compare_file file.c file1.c expected_stdout="EOF on file1.c\n"
+5 command=./compare_file file1.c file.c expected_stdout="EOF on file1.c\n"
+6 command=./compare_file binary1 /dev/null expected_stdout="EOF on /dev/null\n"
+7 command=./compare_file /dev/null binary1 expected_stdout="EOF on /dev/null\n"

@@ -1,0 +1,14 @@
+max_cpu=10
+files=compile_if_needed.c
+shell=1
+
+0 command="rm -f ?;echo 'int main(void){}' >a.c;./compile_if_needed a.c" expected_stdout="/usr/local/bin/dcc a.c -o a \n"
+
+1 command="rm -f ?;echo 'int main(void){}' >b.c;touch -t 01010000 b.c;touch b;./compile_if_needed b.c" expected_stdout="b.c does not need compiling\n"
+
+2 command="rm -f ?;echo 'int main(void){}' >c.c;touch -t 01010000 c;./compile_if_needed c.c" expected_stdout="/usr/local/bin/dcc c.c -o c \n"
+
+3 command="rm -f ?;echo 'int main(void){}' >d.c;cp d.c e.c;cp d.c f.c;touch e;touch -t 01010000 d.c e.c f.c;./compile_if_needed d.c e.c f.c" expected_stdout="/usr/local/bin/dcc d.c -o d \ne.c does not need compiling\n/usr/local/bin/dcc f.c -o f \n"
+
+#4 command="echo 'int main(void){}' >g.c;cp g.c h.c;cp g.c i.c;touch g;touch -t 01010000 g.c h.c i.c;./compile_if_needed g.c h.c i.c;./compile_if_needed g.c h.c i.c" expected_stdout="g.c does not need compiling\n/usr/local/bin/dcc h.c -o h \n/usr/local/bin/dcc i.c -o i \ng.c does not need compiling\nh.c does not need compiling\ni.c does not need compiling\n"
+

@@ -1,0 +1,42 @@
+You have been given <a href="{{activity_url}}files.cp/line_length.s"><code>line_length.s</code></a>,
+a MIPS assembler program that reads a line of input and then prints 42.
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f line_length.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>Hello</kbd>
+Line length: 42
+</pre>
+
+Add code to <code>line_length.s</code>
+to make it equivalent to this C program which reads a line and prints its length:
+
+{{ include_code("files.ln/line_length.c") }}
+
+In other words change the code you given from printing 42 to printing the
+line length
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f line_length.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>Hello</kbd>
+Line length: 6
+<kbd is="sh">1521 spim -f line_length.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>i MIPS you</kbd>
+Line length: 11
+<kbd is="sh">1521 spim -f line_length.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>good bye</kbd>
+Line length: 9
+</pre>
+<aside class="note">
+As you can see in the above examples the characters read (and counted) include the '\n' at the end of the line.
+<p>
+You can assume a line containing at least 1 character is always successfully read.
+<p>
+No error handling is necessary.
+</p></p></aside></p>

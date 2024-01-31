@@ -1,0 +1,46 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/bubblesort.s"><code>bubblesort.s</code></a>,
+a MIPS assembler program that
+reads 10 numbers and then prints them:
+
+<p>
+Add code to <code>bubblesort.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/bubblesort.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f bubblesort.s &lt;numbers1.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+6800
+12086
+24363
+26002
+34001
+47363
+48867
+54999
+60742
+64268
+<kbd is="sh">1521 spim -f bubblesort.s &lt;numbers2.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+4504
+4774
+5681
+7892
+9064
+15334
+40906
+45515
+53906
+55387
+</pre>
+<aside class="hint">
+<p>
+Start by choosing which register you will use for each variable.
+</p></aside>
+</p></p></p>

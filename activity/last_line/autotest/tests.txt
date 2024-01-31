@@ -1,0 +1,19 @@
+max_cpu=10
+files=last_line.c
+command=./last_line
+max_file_size_bytes=2000000000000
+shell=1
+
+0 command="echo -n >empty.txt; ./last_line empty.txt"
+1 command="echo >newline_only.txt; ./last_line newline_only.txt"  expected_stdout="\n"
+2 command="echo -n A >non_newline_only.txt; ./last_line non_newline_only.txt"  expected_stdout="A"
+3 command="echo hello >hello.txt; ./last_line hello.txt"  expected_stdout="hello\n"
+4 command="echo -n hello >hello_no_newline.txt; ./last_line hello_no_newline.txt"  expected_stdout="hello"
+5 command="echo -e 'hello\nworld' >2_lines.txt; ./last_line 2_lines.txt"  expected_stdout="world\n"
+6 command="echo -n -e 'hello\nworld' >2_lines_no_newline.txt; ./last_line 2_lines_no_newline.txt"  expected_stdout="world"
+7 command="seq 1 1000 >1000.txt; ./last_line 1000.txt"  expected_stdout="1000\n"
+
+huge0 command="echo -e 'hello\nworld'|dd status=none seek=1T bs=1 >huge_hello.txt;  ./last_line huge_hello.txt" expected_stdout="world\n"
+huge1 command="echo -n -e 'hello\nworld'|dd status=none seek=500G bs=1 >huge_hello1.txt;  ./last_line huge_hello1.txt" expected_stdout="world"
+huge2 command="seq 1 42|dd status=none seek=750G bs=1 >42.txt;  ./last_line 42.txt" expected_stdout="42\n"
+

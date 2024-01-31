@@ -1,0 +1,14 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+
+
+0 command=./packed_bcd 0 description="0x00000000" expected_stdout="0\n"
+1 command=./packed_bcd 1 description="0x00000001" expected_stdout="1\n"
+2 command=./packed_bcd 37 description="0x00000025" expected_stdout="25\n"
+3 command=./packed_bcd 82 description="0x00000052" expected_stdout="52\n"
+4 command=./packed_bcd 65792 description="0x00010100" expected_stdout="10100\n"
+5 command=./packed_bcd 2368804 description="0x00242524" expected_stdout="242524\n"
+6 command=./packed_bcd 1111642690 description="0x42425242" expected_stdout="42425242\n"
+7 command=./packed_bcd 1879048192 description="0x70000000" expected_stdout="70000000\n"
+8 command=./packed_bcd 2576972185 description="0x99997999" expected_stdout="99997999\n"

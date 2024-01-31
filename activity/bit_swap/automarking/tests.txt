@@ -1,0 +1,14 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+files=bit_swap.c test_bit_swap.c
+
+
+0 command=./bit_swap 0x123457689abcdef0 expected_stdout="bit_swap(0x123457689abcdef0) returned 0x2138ab94657cedf0\n"
+1 command=./bit_swap 0x0000456789a00000 expected_stdout="bit_swap(0x0000456789a00000) returned 0x00008a9b46500000\n"
+2 command=./bit_swap 0x1000000000000001 expected_stdout="bit_swap(0x1000000000000001) returned 0x2000000000000002\n"
+3 command=./bit_swap 0x1111111101111111 expected_stdout="bit_swap(0x1111111101111111) returned 0x2222222202222222\n"
+4 command=./bit_swap 0x8000000010000000 expected_stdout="bit_swap(0x8000000010000000) returned 0x4000000020000000\n"
+5 command=./bit_swap 0x0020000200000000 expected_stdout="bit_swap(0x0020000200000000) returned 0x0010000100000000\n"
+6 command=./bit_swap 0xfadefadef0defade expected_stdout="bit_swap(0xfadefadef0defade) returned 0xf5edf5edf0edf5ed\n"
+7 command=./bit_swap 0xf0f1f8ff9f6ff6ff expected_stdout="bit_swap(0xf0f1f8ff9f6ff6ff) returned 0xf0f2f4ff6f9ff9ff\n"

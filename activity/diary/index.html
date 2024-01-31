@@ -1,0 +1,27 @@
+We wish to maintain a simple diary in the file <code>$HOME/.diary</code>
+<p>
+Write a C program, <code>diary.c</code>, which appends 1 line to <code>$HOME/.diary</code>.
+<p>
+The line should be its command-line arguments separated by a space followed by a '\n'.
+<p>
+<p>
+<code>diary.c</code> should print nothing on stdout.  It should only append to  <code>$HOME/.diary</code>.
+
+<pre is="tty">
+<kbd is="sh">dcc diary.c -o diary</kbd>
+<kbd is="sh">./diary Lisa</kbd>
+<kbd is="sh">cat $HOME/.diary</kbd>
+Lisa
+<kbd is="sh">./diary in this house</kbd>
+<kbd is="sh">./diary we obey the laws of thermodynamics</kbd>
+<kbd is="sh">cat $HOME/.diary</kbd>
+Lisa
+in this house
+we obey the laws of thermodynamics
+</pre>
+<aside class="hint">
+The lecture example <a href="{{url_root}}code/processes/#getenv.c">getenv.c</a>  shows how to get the value of an environment variable.
+<p>
+snprintf is a convenient fucntion for constructing the pathname of the diary file.
+</p></aside>
+</p></p></p></p>

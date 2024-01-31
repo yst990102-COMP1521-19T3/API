@@ -1,0 +1,8 @@
+
+max_cpu=240
+no_reproduce_command=1
+files=bcd_arithmetic.c
+compiler_args=-Dmain=_main test_bcd_arithmetic.c bcd_arithmetic.c -o test_bcd_arithmetic
+
+
+0 command=./test_bcd_arithmetic 9007199254740994 - 1 description="9007199254740994 - 1" expected_stdout="9007199254740993\n"

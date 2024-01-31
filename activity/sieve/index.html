@@ -1,0 +1,46 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/sieve.s"><code>sieve.s</code></a>.
+<p>
+Add code to <code>sieve.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/sieve.c") }}
+
+<p>
+Use the space in the data area to store the array <code>prime</code>.
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f sieve.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+2
+3
+2
+3
+5
+7
+11
+13
+17
+19
+23
+...
+971
+977
+983
+991
+997
+</pre>
+<aside class="hint">
+<p>
+Use <code>lb</code> and <code>sb</code> instruction to access array <code>prime</code>.
+</p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You must implement the algorithm in <code>sieve.c</code>.
+You are not permitted to use another algorithm to print prime numbers.
+</p></li></ul>
+</aside>
+</p></p></p>

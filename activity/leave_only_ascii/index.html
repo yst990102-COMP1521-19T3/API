@@ -1,0 +1,38 @@
+<p>
+We need to remove the non-ASCII bytes from files.
+<p>
+Write a C program, <code>leave_only_ascii.c</code>, which takes one argument, a filename.
+<p>
+<code>leave_only_ascii.c</code> should remove all non-ASCII bytes from the file.
+<p>
+After it is run the file should contain only a ASCII bytes.
+<p>
+It should print nothing on stdout.  It should only change the file.
+<p>
+Assume a byte is non-ASCII if it contains a value between 128..255 inclusive.
+
+<pre is="tty">
+<kbd is="sh">dcc leave_only_ascii.c -o leave_only_ascii</kbd>
+<kbd is="sh">echo -e 'hello\xBAworld' &gt;file2</kbd>
+<kbd is="sh">ls -l file2</kbd>
+-rw-r--r-- 1 z5555555 z5555555 12 Nov  8 08:18 file2
+<kbd is="sh">./non_ascii file2</kbd>
+file2: byte 5 is non-ASCII
+<kbd is="sh">./leave_only_ascii file2</kbd>
+<kbd is="sh">ls -l file2</kbd>
+-rw-r--r-- 1 z5555555 z5555555 11 Nov  8 08:18 file2
+<kbd is="sh">./non_ascii file2</kbd>
+file2 is all ASCII
+</pre>
+<aside class="note">
+No error checking is required.
+<p>
+Your program can assume it is always given the name of a file.
+<p>
+You are permitted to create another (temporary) file in the current directory.
+<p>
+Your solution must be in C only.
+<p>
+You are not permitted to run external programs.  You are not permitted to use  system, popen, posix_spawn, fork or exec.
+</p></p></p></p></aside>
+</p></p></p></p></p></p>

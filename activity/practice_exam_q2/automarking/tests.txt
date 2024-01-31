@@ -1,0 +1,14 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+files=practice_exam_q2.c test_practice_exam_q2.c
+
+
+0 command=./practice_exam_q2 0x123457689abcdef0 expected_stdout="q2(0x123457689abcdef0) returned 32\n"
+1 command=./practice_exam_q2 0x0000abcdef000000 expected_stdout="q2(0x0000abcdef000000) returned 17\n"
+2 command=./practice_exam_q2 0x1000000000000001 expected_stdout="q2(0x1000000000000001) returned 2\n"
+3 command=./practice_exam_q2 0x1111111101111111 expected_stdout="q2(0x1111111101111111) returned 15\n"
+4 command=./practice_exam_q2 0x8000000010000000 expected_stdout="q2(0x8000000010000000) returned 2\n"
+5 command=./practice_exam_q2 0x0020000200000000 expected_stdout="q2(0x0020000200000000) returned 2\n"
+6 command=./practice_exam_q2 0xfadefadef0defade expected_stdout="q2(0xfadefadef0defade) returned 46\n"
+7 command=./practice_exam_q2 0xffffffffffffffff expected_stdout="q2(0xffffffffffffffff) returned 64\n"

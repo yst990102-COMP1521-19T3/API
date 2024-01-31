@@ -1,0 +1,55 @@
+<p>
+Write a C program, <code>print_bytes</code>,
+which takes one argument, a filename,
+and which should should read the specifed file
+and print one line for each byte of the file.
+The line should show the byte in decimal and hexadecimal.
+If that byte is a an ASCII printable character,
+its ASCII value should also be printed.
+
+<p>
+Assume ASCII printable characters are those for which
+the <code>ctype.h</code> function <cite>isprint(3)</cite> returns
+a non-zero value.
+
+<p>
+Follow the format in this example exactly:
+
+<pre is="tty">
+<kbd is="sh">echo "Hello Andrew!" &gt;hello.txt</kbd>
+<kbd is="sh">./print_bytes hello.txt</kbd>
+byte    0:  72 0x48 'H'
+byte    1: 101 0x65 'e'
+byte    2: 108 0x6c 'l'
+byte    3: 108 0x6c 'l'
+byte    4: 111 0x6f 'o'
+byte    5:  32 0x20 ' '
+byte    6:  65 0x41 'A'
+byte    7: 110 0x6e 'n'
+byte    8: 100 0x64 'd'
+byte    9: 114 0x72 'r'
+byte   10: 101 0x65 'e'
+byte   11: 119 0x77 'w'
+byte   12:  33 0x21 '!'
+byte   13:  10 0x0a
+</pre>
+<aside class="hint">
+<p>
+Use <cite>fgetc(3)</cite> to read the file,
+and <cite>printf(3)</cite> for output.
+<p>
+The <cite>printf(3)</cite> format you need
+will be similar to <code>"byte %4ld: %3d 0x%02x"</code>
+</p></p></aside>
+<aside class="note">
+<p>
+Note that, in the above example,
+the last byte has value 10 (ASCII <q>linefeed</q>, '\n')
+which is <em>not</em> a printable character —
+<code>isprint('\n')</code> returns 0 —
+so its ASCII value is not printed.
+<p>
+The useful *nix utility <cite>hexdump(1)</cite>
+does what this program does and more.
+</p></p></aside>
+</p></p></p>

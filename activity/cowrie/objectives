@@ -1,0 +1,8 @@
+objectives = [
+	'to explore Linux process manipulation system calls',
+	'to further explore string manipulation in C',
+	'to further experience data structures in C',
+	'to build a very simple command-line interpreter',
+	'to explore writing C code to manipulate processes',
+	'to give you experience with interprocess communication (pipes)'
+]

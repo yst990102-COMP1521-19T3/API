@@ -1,0 +1,47 @@
+You have been given <a href="{{activity_url}}files.cp/palindrome.s"><code>palindrome.s</code></a>,
+a MIPS assembler program that reads a line of input and then prints 2 lines.
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f palindrome.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>Hello</kbd>
+not palindrome
+palindrome
+</pre>
+
+Add code to <code>palindrome.s</code>
+to make it equivalent to this C program which reads a line and prints whether it is a palindrome or not.
+
+{{ include_code("files.ln/palindrome.c") }}
+
+A palindrome is a sequence which is the same forwards
+as backwards.
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f palindrome.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>kayak</kbd>
+palindrome
+<kbd is="sh">1521 spim -f palindrome.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>canoe</kbd>
+not palindrome
+<kbd is="sh">1521 spim -f palindrome.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>madamimadam</kbd>
+palindrome
+<kbd is="sh">1521 spim -f palindrome.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>abcdecba</kbd>
+not palindrome
+</pre>
+<aside class="note">
+<p>
+You can assume a line can be read.
+<p>
+You can assume the line will contain at most 256 characters.
+<p>
+</p></p></p></aside>
+</p>

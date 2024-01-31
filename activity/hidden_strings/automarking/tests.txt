@@ -1,0 +1,25 @@
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+files=hidden_strings.c
+command=./hidden_strings
+use_dcc_output_checking=0
+shell=1
+
+0 command="echo hello >test; ./hidden_strings test" expected_stdout="hello\n"
+
+1 command="echo 'bye' >test; ./hidden_strings test"
+
+2 command="echo -n 'no newline' >test; ./hidden_strings test" expected_stdout="no newline\n"
+
+3 command="echo -e 'a\nbc\ndef\nghij\nklmno\npqrs\ntuv\nwx\ny\nz' >test; ./hidden_strings test" expected_stdout="ghij\nklmno\npqrs\n"
+
+
+4 command="echo -e 'a\xFFbc\xFEdef\xFDghij\x80klmno\x81pqrs\x09tuv\x08wx\x07y\x06z' >test; ./hidden_strings test" expected_stdout="ghij\nklmno\npqrs\n"
+
+secret0 command="./hidden_strings binary1" description="gcc secret.c -o binary1; ./hidden_strings binary1" expected_stdout="/lib64/ld-linux-x86-64.so.2\nlH;ZG$\x22\nlibc.so.6\n__cxa_finalize\n__libc_start_main\nGLIBC_2.2.5\n_ITM_deregisterTMCloneTable\n__gmon_start__\n_ITM_registerTMCloneTable\nu/UH\n[]A\x5cA]A^A_\nsecret string\n;*3$\x22\nGCC: (Debian 8.2.0-14) 8.2.0\ncrtstuff.c\nderegister_tm_clones\n__do_global_dtors_aux\ncompleted.7325\n__do_global_dtors_aux_fini_array_entry\nframe_dummy\n__frame_dummy_init_array_entry\nsecret.c\n__FRAME_END__\n__init_array_end\n_DYNAMIC\n__init_array_start\n__GNU_EH_FRAME_HDR\n_GLOBAL_OFFSET_TABLE_\n__libc_csu_fini\n_ITM_deregisterTMCloneTable\n_edata\n__libc_start_main@@GLIBC_2.2.5\n__data_start\n__gmon_start__\n__dso_handle\n_IO_stdin_used\n__libc_csu_init\nsecret_function_name\n__bss_start\nmain\nsecret_global_variable\n__TMC_END__\n_ITM_registerTMCloneTable\n__cxa_finalize@@GLIBC_2.2.5\n.symtab\n.strtab\n.shstrtab\n.interp\n.note.ABI-tag\n.note.gnu.build-id\n.gnu.hash\n.dynsym\n.dynstr\n.gnu.version\n.gnu.version_r\n.rela.dyn\n.init\n.plt.got\n.text\n.fini\n.rodata\n.eh_frame_hdr\n.eh_frame\n.init_array\n.fini_array\n.dynamic\n.got.plt\n.data\n.bss\n.comment\n"
+
+secret1 command="./hidden_strings binary2" description="gcc -g secret.c -o binary2; ./hidden_strings binary2" expected_stdout="/lib64/ld-linux-x86-64.so.2\nlibc.so.6\n__cxa_finalize\n__libc_start_main\nGLIBC_2.2.5\n_ITM_deregisterTMCloneTable\n__gmon_start__\n_ITM_registerTMCloneTable\nu/UH\n[]A\x5cA]A^A_\nsecret string\n;*3$\x22\nGCC: (Debian 8.2.0-14) 8.2.0\nsecret.c\nGNU C17 8.2.0 -mtune=generic -march=x86-64 -g\nsecret.c\nmain\nsecret_global_variable\n/import/adams/1/andrewt\nchar\nsecret_function_name\nsecret_local_variable\ncrtstuff.c\nderegister_tm_clones\n__do_global_dtors_aux\ncompleted.7325\n__do_global_dtors_aux_fini_array_entry\nframe_dummy\n__frame_dummy_init_array_entry\nsecret.c\n__FRAME_END__\n__init_array_end\n_DYNAMIC\n__init_array_start\n__GNU_EH_FRAME_HDR\n_GLOBAL_OFFSET_TABLE_\n__libc_csu_fini\n_ITM_deregisterTMCloneTable\n_edata\n__libc_start_main@@GLIBC_2.2.5\n__data_start\n__gmon_start__\n__dso_handle\n_IO_stdin_used\n__libc_csu_init\nsecret_function_name\n__bss_start\nmain\nsecret_global_variable\n__TMC_END__\n_ITM_registerTMCloneTable\n__cxa_finalize@@GLIBC_2.2.5\n.symtab\n.strtab\n.shstrtab\n.interp\n.note.ABI-tag\n.note.gnu.build-id\n.gnu.hash\n.dynsym\n.dynstr\n.gnu.version\n.gnu.version_r\n.rela.dyn\n.init\n.plt.got\n.text\n.fini\n.rodata\n.eh_frame_hdr\n.eh_frame\n.init_array\n.fini_array\n.dynamic\n.got.plt\n.data\n.bss\n.comment\n.debug_aranges\n.debug_info\n.debug_abbrev\n.debug_line\n.debug_str\n"
+
+secret2 command="./hidden_strings binary3" description="gcc -s secret.c -o binary3; ./hidden_strings binary3" expected_stdout="/lib64/ld-linux-x86-64.so.2\nlibc.so.6\n__cxa_finalize\n__libc_start_main\nGLIBC_2.2.5\n_ITM_deregisterTMCloneTable\n__gmon_start__\n_ITM_registerTMCloneTable\nu/UH\n[]A\x5cA]A^A_\nsecret string\n;*3$\x22\nGCC: (Debian 8.2.0-14) 8.2.0\n.shstrtab\n.interp\n.note.ABI-tag\n.note.gnu.build-id\n.gnu.hash\n.dynsym\n.dynstr\n.gnu.version\n.gnu.version_r\n.rela.dyn\n.init\n.plt.got\n.text\n.fini\n.rodata\n.eh_frame_hdr\n.eh_frame\n.init_array\n.fini_array\n.dynamic\n.got.plt\n.data\n.bss\n.comment\n"

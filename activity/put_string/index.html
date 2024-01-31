@@ -1,0 +1,39 @@
+{{ with_file("files.cp/put_string.c", change_function="put_string") }}
+
+<p>
+The function <code>put_string</code> is given a string.
+It should write the string to stdout followed by a  newline.
+It should use the fputc function do this.
+You are not permitted to use any other function.
+
+<pre is="tty">
+<kbd is="sh">./put_string hello</kbd>
+calling put_string("hello"):
+hello
+<kbd is="sh">./put_string 'good bye'</kbd>
+calling put_string("good bye"):
+good bye
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make put_string'</span>
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>put_string</code>' prototype (its return type and argument types).
+
+<li><p>
+You are not permitted to use printf, puts, fputs or write.
+
+<li><p>
+You are not permitted to use C library function other than fputc.
+
+</p></li></p></li></p></li></p></li></ul>
+</p></p>

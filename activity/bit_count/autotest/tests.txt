@@ -1,0 +1,14 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+files=bit_count.c test_bit_count.c
+
+
+0 command=./bit_count 0x123456789abcdef0 expected_stdout="bit_count(0x123456789abcdef0) returned 32\n"
+1 command=./bit_count 0x0000000000000000 expected_stdout="bit_count(0x0000000000000000) returned 0\n"
+2 command=./bit_count 0x1000000000000000 expected_stdout="bit_count(0x1000000000000000) returned 1\n"
+3 command=./bit_count 0x1111111111111111 expected_stdout="bit_count(0x1111111111111111) returned 16\n"
+4 command=./bit_count 0x8000000000000000 expected_stdout="bit_count(0x8000000000000000) returned 1\n"
+5 command=./bit_count 0x0000000200000000 expected_stdout="bit_count(0x0000000200000000) returned 1\n"
+6 command=./bit_count 0xfadefadefadefade expected_stdout="bit_count(0xfadefadefadefade) returned 48\n"
+7 command=./bit_count 0xffffffffffffffff expected_stdout="bit_count(0xffffffffffffffff) returned 64\n"

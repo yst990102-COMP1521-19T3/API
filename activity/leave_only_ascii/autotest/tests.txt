@@ -1,0 +1,16 @@
+max_cpu=10
+files=leave_only_ascii.c
+command=./leave_only_ascii
+shell=1
+
+0 command="echo hello >test1; ./leave_only_ascii test1" expected_file_name=test1
+
+1 command="./leave_only_ascii file.c" expected_file_name=file.c
+
+2 command="echo -e '\x82' >test2; ./leave_only_ascii test2" expected_file_name=test2
+
+3 command="echo -e 'hello\xBAworld' >test3; ./leave_only_ascii test3" expected_file_name=test3
+
+4 command="./leave_only_ascii binary1" expected_file_name=binary1
+
+5 command="./leave_only_ascii binary2" expected_file_name=binary2

@@ -1,0 +1,46 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/swap_numbers.s"><code>swap_numbers.s</code></a>,
+a MIPS assembler program that
+reads 10 numbers and then prints them:
+
+<p>
+Add code to <code>swap_numbers.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/swap_numbers.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f swap_numbers.s &lt;numbers1.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+12086
+24363
+47363
+34001
+6800
+60742
+48867
+26002
+54999
+64268
+<kbd is="sh">1521 spim -f swap_numbers.s &lt;numbers2.txt</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+9064
+40906
+4504
+4774
+7892
+15334
+45515
+53906
+5681
+55387
+</pre>
+<aside class="hint">
+<p>
+Start by choosing which register you will use for each variable.
+</p></aside>
+</p></p></p>

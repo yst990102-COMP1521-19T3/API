@@ -1,0 +1,55 @@
+{{ copy_a_file("files/sixteen_out.c", change_function="sixteen_out") }}
+
+<p>
+Add code to the function <code>sixteen_out</code> so that,
+given a 16-bit signed integer it returns a string
+containing sixteen binary digits (<code>'0'</code> or <code>'1'</code>).
+For example:
+
+<pre is="tty">
+<kbd is="sh">./sixteen_out 0</kbd>
+0000000000000000
+<kbd is="sh">./sixteen_out -1</kbd>
+1111111111111111
+<kbd is="sh">./sixteen_out 13107</kbd>
+0011001100110011
+<kbd is="sh">./sixteen_out -3856</kbd>
+1111000011110000
+</pre>
+<aside class="hint">
+<p>
+Write a loop which, for each bit
+(determined using the bitwise operators <code>&amp;</code> and <code>&lt;&lt;</code>)
+sets the corresponding character in the string
+to a <code>'0'</code> or <code>'1'</code>.
+This should be structurally very similar to <code>sixteen_in</code>.
+
+<p>
+<code>sixteen_out</code> returns a string,
+whose storage space must be allocated using <cite>malloc(3)</cite>.
+A string is a NUL-terminated character array;
+remember to allocate enough space for all the characters
+<em>and</em> the terminating NUL byte.
+</p></p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+{# FIXME(jashankj): this is redundant...? #}
+<code>sixteen_out</code> can assume its input is
+a value between 32767 and -32768 inclusive.
+
+<li><p>
+You may define and call your own functions, if you wish.
+
+<li><p>
+You are not permitted to call any functions from the C library,
+other than <cite>malloc(3)</cite>.
+
+<li><p>
+You are not permitted
+to change the <code>main</code> function you have been given, or
+to change <code>sixteen_out</code>'s prototype
+(its return type and argument types).
+</p></li></p></li></p></li></p></li></ul>
+</aside>
+</p>

@@ -1,0 +1,9 @@
+max_cpu=30
+files=dynamic_load.s
+shell=1
+
+42 command="1521 spim -f dynamic_load.s <42.instructions" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter mips instructions as integers, -1 to finish:\x0aStarting executing instructions\x0a42Finished executing instructions\x0a"
+add command="1521 spim -f dynamic_load.s <add.instructions" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter mips instructions as integers, -1 to finish:\x0aStarting executing instructions\x0a42\x0aFinished executing instructions\x0a"
+hi command="1521 spim -f dynamic_load.s <print_for_challenge.instructions" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter mips instructions as integers, -1 to finish:\x0aStarting executing instructions\x0aHi\x0aFinished executing instructions\x0a"
+print10 command="1521 spim -f dynamic_load.s < print10.instructions" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter mips instructions as integers, -1 to finish:\x0aStarting executing instructions\x0a1\x0a2\x0a3\x0a4\x0a5\x0a6\x0a7\x0a8\x0a9\x0a10\x0aFinished executing instructions\x0a"
+sum_100_squares command="1521 spim -f dynamic_load.s <sum_100_squares.instructions" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter mips instructions as integers, -1 to finish:\x0aStarting executing instructions\x0a338350\x0aFinished executing instructions\x0a"

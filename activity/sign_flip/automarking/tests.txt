@@ -1,0 +1,23 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+compiler_args=-Dmain=_main autotest_sign_flip.c sign_flip.c -o sign_flip
+files=sign_flip.c
+
+
+0 command=./sign_flip 4 expected_stdout="sign_flip(4) returned -4\n"
+1 command=./sign_flip 6 expected_stdout="sign_flip(6) returned -6\n"
+2 command=./sign_flip 7.99 expected_stdout="sign_flip(7.98999977) returned -7.98999977\n"
+3 command=./sign_flip 0.749 expected_stdout="sign_flip(0.749000013) returned -0.749000013\n"
+4 command=./sign_flip -0.748 expected_stdout="sign_flip(-0.748000026) returned 0.748000026\n"
+5 command=./sign_flip -1.5 expected_stdout="sign_flip(-1.5) returned 1.5\n"
+6 command=./sign_flip 4.198765432e-31 expected_stdout="sign_flip(4.1987652e-31) returned -4.1987652e-31\n"
+7 command=./sign_flip 9.11234567e+37 expected_stdout="sign_flip(9.11234611e+37) returned -9.11234611e+37\n"
+8 command=./sign_flip inf expected_stdout="sign_flip(inf) returned -inf\n"
+9 command=./sign_flip -inf expected_stdout="sign_flip(-inf) returned inf\n"
+10 command=./sign_flip 0.0 expected_stdout="sign_flip(0) returned -0\n"
+11 command=./sign_flip -0.0 expected_stdout="sign_flip(-0) returned 0\n"
+12 command=./sign_flip NaN expected_stdout="sign_flip(nan) returned -nan\n"

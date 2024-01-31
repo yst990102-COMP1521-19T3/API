@@ -1,0 +1,34 @@
+Write a C program, <code>is_diary_public.c</code>, which prints 1 if a file named <code>$HOME/.diary</code>
+exists and is publically readable (readable to all users).
+<p>
+It should print 0 otherwise.
+<p>
+By <b>$HOME</b> we mean the value of the environment variable HOME.
+
+<pre is="tty">
+<kbd is="sh">dcc is_diary_public.c -o is_diary_public</kbd>
+<kbd is="sh">echo &gt;$HOME/.diary</kbd>
+<kbd is="sh">chmod 644 $HOME/.diary</kbd>
+<kbd is="sh">./is_diary_public</kbd>
+1
+<kbd is="sh">chmod 600  $HOME/.diary</kbd>
+<kbd is="sh">./is_diary_public</kbd>
+0
+<kbd is="sh">rm $HOME/.diary</kbd>
+<kbd is="sh">./is_diary_public</kbd>
+0
+</pre>
+<aside class="note">
+You can assume if <code>$HOME/.diary</code> exists its is an ordinary file.
+<p>
+No error checking is required.
+<p>
+Your program can assume it is always a single argument.
+<p>
+It should always one line of output.  The line of output should contain only 0 or 1.
+<p>
+Your solution must be in C only.
+<p>
+You are not permitted to run external programs.  You are not permitted to use  system, popen, posix_spawn, fork or exec.
+</p></p></p></p></p></aside>
+</p></p>

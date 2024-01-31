@@ -1,0 +1,14 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f factorial.s
+files=factorial.s
+
+
+0 stdin="1\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter n: 1! = 1\x0a"
+1 stdin="2\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter n: 2! = 2\x0a"
+2 stdin="3\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter n: 3! = 6\x0a"
+3 stdin="6\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter n: 6! = 720\x0a"
+4 stdin="8\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter n: 8! = 40320\x0a"
+5 stdin="9\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter n: 9! = 362880\x0a"
+6 stdin="11\n" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter n: 11! = 39916800\x0a"

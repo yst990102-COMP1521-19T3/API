@@ -1,0 +1,40 @@
+<p>
+We need to check whether 2 files contain identical bytes
+<p>
+Write a C program, <code>compare_file.c</code>, which takes two arguments, both filenames.
+<p>
+<code>compare_file.c</code> should print one line of output.
+<p>
+If the two files are different  <code>compare_file.c</code> should print the location of the
+first byte whether they differ.   Use the same format as the example below.
+<p>
+If the one file is shorter than the other but the bytes it contains
+are identical to the other file, <code>compare_file.c</code> should print a message indicating this.
+Use the same format as the example below.
+<p>
+If the 2 files contain exactly the same bytes <code>compare_file.c</code> should print a message indicating this.
+Again use the same format as the example below.
+
+<pre is="tty">
+<kbd is="sh">dcc compare_file.c -o compare_file</kbd>
+<kbd is="sh">echo hello world &gt;file1</kbd>
+<kbd is="sh">echo hello world &gt;file2</kbd>
+<kbd is="sh">./compare_file file1 file2</kbd>
+Files are identical
+<kbd is="sh">echo -n hello &gt;file3</kbd>
+<kbd is="sh">./compare_file file1 file3</kbd>
+EOF on file3
+<kbd is="sh">echo help me &gt;file4</kbd>
+<kbd is="sh">./compare_file file1 file4</kbd>
+Files differ at byte 3
+</pre>
+<aside class="note">
+No error checking is required.
+<p>
+Your program can assume it is always given the names of 2 files.
+<p>
+Your solution must be in C only.
+<p>
+You are not permitted to run external programs.  You are not permitted to use  system, popen, posix_spawn, fork or exec.
+</p></p></p></aside>
+</p></p></p></p></p></p>

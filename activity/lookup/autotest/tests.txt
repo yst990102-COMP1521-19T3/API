@@ -1,0 +1,12 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f lookup.s
+files=lookup.s
+
+
+0 stdin="0\n0\n" description="0 0" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter x: Enter y: 9\x0a"
+1 stdin="41\n23\n" description="41 23" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter x: Enter y: 2\x0a"
+2 stdin="11\n13\n" description="11 13" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter x: Enter y: 5\x0a"
+3 stdin="9\n7\n" description="9 7" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter x: Enter y: 7\x0a"
+4 stdin="5\n5\n" description="5 5" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\x0aEnter x: Enter y: 4\x0a"

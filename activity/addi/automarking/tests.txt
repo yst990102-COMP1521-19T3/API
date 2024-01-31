@@ -1,0 +1,16 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+compiler_args=-Dmain=_main autotest_addi.c addi.c -o addi
+files=addi.c
+
+
+0 command=./addi 27 28 23456 description="27 28 23456" expected_stdout="addi(27, 28, 23456) returned 0x239b5ba0\n"
+1 command=./addi 12 14 -12 description="12 14 -12" expected_stdout="addi(12, 14, -12) returned 0x21ccfff4\n"
+2 command=./addi 30 30 -2 description="30 30 -2" expected_stdout="addi(30, 30, -2) returned 0x23defffe\n"
+3 command=./addi 0 0 0 description="0 0 0" expected_stdout="addi(0, 0, 0) returned 0x20000000\n"
+4 command=./addi 22 15 -32761 description="22 15 -32761" expected_stdout="addi(22, 15, -32761) returned 0x21f68007\n"
+5 command=./addi 13 15 32761 description="13 15 32761" expected_stdout="addi(13, 15, 32761) returned 0x21ed7ff9\n"

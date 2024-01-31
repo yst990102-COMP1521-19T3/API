@@ -1,0 +1,42 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/square.s"><code>square.s</code></a>,
+a MIPS assembler program that reads a number and then prints 42.
+<p>
+Add code to <code>square.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.ln/square.c") }}
+
+In other words it should read a numbers and print a square of asterisks of that size.
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f square.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>3
+</kbd>***
+***
+***
+<kbd is="sh">1521 spim -f square.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>4
+</kbd>****
+****
+****
+****
+<kbd is="sh">1521 spim -f square.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+<kbd>7
+</kbd>*******
+*******
+*******
+*******
+*******
+*******
+*******
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+
+You can assume the number read is positive (&gt; 0).</p></p></p>

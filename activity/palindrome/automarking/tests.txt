@@ -1,0 +1,24 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+command=1521 spim -f palindrome.s
+files=palindrome.s
+
+
+0 stdin="civic\n" description="civic" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+1 stdin="civil\n" description="civil" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+2 stdin="level\n" description="level" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+3 stdin="lavel\n" description="lavel" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+4 stdin="dodo\ndodo\ndodo\nodod\nodod\nodod\n" description="dodo dodo dodo odod odod odod" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+5 stdin="odod\nodod\nodod\ndodo\ndodo\ndodo\n" description="odod odod odod dodo dodo dodo" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+6 stdin="01299210\n" description="01299210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+7 stdin="019999210\n" description="019999210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+8 stdin="\n" description="" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+9 stdin="012999910\n" description="012999910" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+10 stdin="0129999210\n" description="0129999210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+11 stdin="012994210\n" description="012994210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+12 stdin="dodo\ndodo\ndodo\nddd\nodod\nodod\nodod\n" description="dodo dodo dodo ddd odod odod odod" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+13 stdin="dodo\ndodo\ndodo\nddo\nodod\nodod\nodod\n" description="dodo dodo dodo ddo odod odod odod" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"

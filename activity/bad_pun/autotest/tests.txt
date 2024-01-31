@@ -1,0 +1,2 @@
+files=bad_pun.s
+0 command=1521 spim -f bad_pun.s expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nI MIPS you!\n"

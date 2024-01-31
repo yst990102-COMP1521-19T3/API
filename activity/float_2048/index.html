@@ -1,0 +1,74 @@
+{{ with_file("files.cp/float_2048.c", change_function="float_2048") }}
+
+<p>
+Add code to the function <code>float_2048</code>
+so that, given a <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">float</a> as a <code>uint32_t</code>,
+it multiplies that value by 2048
+using only bit operations and addition (+),
+and returns the result.
+If, after multiplication,
+the result is too large to be represented as a <code>float</code>,
+return <code>inf</code> if the original <code>float</code> was positive,
+and <code>-inf</code> if it was negative.
+
+<p>
+Once your program is working,
+you should see something like:
+
+<pre is="tty">
+<kbd is="sh">./float_2048 1</kbd>
+2048
+<kbd is="sh">./float_2048 3.14159265</kbd>
+6433.98193
+<kbd is="sh">./float_2048 -2.718281828e-20</kbd>
+-5.56704133e-17
+<kbd is="sh">./float_2048 1e38</kbd>
+inf
+<kbd is="sh">./float_2048 -1e37</kbd>
+-inf
+<kbd is="sh">./float_2048 inf</kbd>
+inf
+<kbd is="sh">./float_2048 -inf</kbd>
+-inf
+<kbd is="sh">./float_2048 nan</kbd>
+nan
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make float_2048'</span>
+</pre>
+<aside class="hint">
+<p>
+Some of the functions from the previous exercise may be useful.
+<p>
+Adding 11 to the exponent
+is the same as multiplying by 2048,
+but you will need to check
+this doesn't make the exponent
+too large for a float.
+</p></p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+<code>float_2048</code> takes and returns a <code>uint32_t</code>
+that encode a single-precision floating-point number.
+You can assume the supplied <code>float</code> is not <a href="https://en.wikipedia.org/wiki/Denormal_number">denormal</a>.
+
+<li><p>
+You may define and call additional functions if you wish.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to perform floating-point operations,
+or to use variables of type <code>float</code> or <code>double</code>,
+or to use multiplication or division.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>float_2048</code>' prototype (its return type and argument types).
+</p></li></p></li></p></li></p></li></ul>
+</aside>
+</p></p></p>

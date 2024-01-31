@@ -1,0 +1,13 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+compiler_args=-Dmain=_main autotest_add.c add.c -o add
+files=add.c
+
+
+0 command=./add 29 28 11 description="29 28 11" expected_stdout="add(29, 28, 11) returned 0x038be820\n"
+1 command=./add 2 4 12 description="2 4 12" expected_stdout="add(2, 4, 12) returned 0x008c1020\n"
+2 command=./add 31 31 11 description="31 31 11" expected_stdout="add(31, 31, 11) returned 0x03ebf820\n"
+3 command=./add 0 0 0 description="0 0 0" expected_stdout="add(0, 0, 0) returned 0x00000020\n"
+4 command=./add 31 31 31 description="31 31 31" expected_stdout="add(31, 31, 31) returned 0x03fff820\n"
+5 command=./add 3 5 27 description="3 5 27" expected_stdout="add(3, 5, 27) returned 0x00bb1820\n"

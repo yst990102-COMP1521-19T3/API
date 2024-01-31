@@ -1,0 +1,14 @@
+max_cpu=10
+compare_only_characters=0123456789
+files=create_integers_file.c
+command=./create_integers_file
+
+shell=1
+
+autotest0 command="rm -f numbers*.txt;./numbers numbers0.txt 1 1      " expected_file_name=numbers0.txt
+autotest1 command="rm -f numbers*.txt;./numbers numbers1.txt 1 2      " expected_file_name=numbers1.txt
+autotest2 command="rm -f numbers*.txt;./numbers numbers2.txt 1 3      " expected_file_name=numbers2.txt
+ignore_blank_lines=1
+autotest3 command="rm -f numbers*.txt;./numbers numbers3.txt 1 4200   " expected_file_name=numbers3.txt
+autotest4 command="rm -f numbers*.txt;./numbers numbers4.txt 4200 4204" expected_file_name=numbers4.txt
+autotest5 command="rm -f numbers*.txt;./numbers numbers5.txt 50 100   " expected_file_name=numbers5.txt

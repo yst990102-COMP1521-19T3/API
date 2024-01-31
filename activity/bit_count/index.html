@@ -1,0 +1,45 @@
+{{ with_file("files.cp/bit_count.c", change_function="bit_count") }}
+
+<p>
+Add code to the function <code>bit_count</code> so that,
+given a <code>uint64_t</code> value,
+it returns how many 1 bits it contains.
+You should use bitwise operators to do this.
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">./bit_count 0x123456789abcdef0</kbd>
+bit_count(0x123456789abcdef0) returned 32
+<kbd is="sh">./bit_count 0xffffffffffffffff</kbd>
+bit_count(0xffffffffffffffff) returned 64
+<kbd is="sh">./bit_count 0x0000000000000000</kbd>
+bit_count(0x0000000000000000) returned 0
+<kbd is="sh">./bit_count 0x0000000400000000</kbd>
+bit_count(0x0000000400000000) returned 1
+<kbd is="sh">./bit_count 0x8000000000000001</kbd>
+bit_count(0x8000000000000001) returned 2
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make bit_count'</span>
+</pre>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to use division (<code>/</code>), multiplication (<code>*</code>), or modulus (<code>%</code>).
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>bit_count</code>'s prototype (its return type and argument types).
+</p></li></p></li></p></li></ul>
+</aside>
+</p></p></p>

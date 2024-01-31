@@ -1,0 +1,17 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts//autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f nuxi.s
+files=nuxi.s
+
+
+# UNIX=0x58494e55, UNIX=0x58494e55, src=0x87654321, exp=0x87654321
+0 stdin="1481199189\n-2023406815\n" description="UNIX 0x87654321" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nLoaded: /home/cs1521/share/spim/exceptions.s\n(spim) (spim) (spim) "
+# UNIX=0x58494e55, XINU=0x554e4958, src=0x87654321, exp=0x21436587
+1 stdin="1431193944\n-2023406815\n" description="XINU 0x87654321" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nLoaded: /home/cs1521/share/spim/exceptions.s\n(spim) (spim) (spim) "
+# UNIX=0x58494e55, NUXI=0x4958554e, src=0xdeadbeef, exp=0xaddeefbe
+2 stdin="1230525774\n-559038737\n" description="NUXI 0xdeadbeef" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nLoaded: /home/cs1521/share/spim/exceptions.s\n(spim) (spim) (spim) "
+# UNIX=0x58494e55, UNXI=0x49584e55, src=0x12345678, exp=0x34125678
+3 stdin="1230523989\n305419896\n" description="UNXI 0x12345678" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nLoaded: /home/cs1521/share/spim/exceptions.s\n(spim) (spim) (spim) "
+# UNIX=0x58494e55, UXNI=0x494e5855, src=0x12345678, exp=0x34561278
+4 stdin="1229871189\n305419896\n" description="UXNI 0x12345678" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nLoaded: /home/cs1521/share/spim/exceptions.s\n(spim) (spim) (spim) "

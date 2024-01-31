@@ -1,0 +1,88 @@
+{{ with_file("files.cp/float_print.c", change_function="float_print") }}
+
+<p>
+The function <code>float_print</code> takes a <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">float</a> as a <code>uint32_t</code>.
+Add code to it that prints its value
+as a decimal, in <code>"%.9g"</code> format,
+using only <cite>putchar(3)</cite> or <cite>puts(3)</cite>.
+You cannot use any other functions,
+such as <cite>printf(3)</cite>.
+
+<p>
+Once your implementation is working,
+you should see things like:
+
+<pre is="tty">
+<kbd is="sh">./float_print 1</kbd>
+1
+<kbd is="sh">./float_print 3.14159265</kbd>
+3.14159274
+<kbd is="sh">./float_print -2.718281828e-20</kbd>
+-2.7182819e-20
+<kbd is="sh">./float_print 1.7e38</kbd>
+1.69999998e+38
+<kbd is="sh">./float_print inf</kbd>
+inf
+<kbd is="sh">./float_print -inf</kbd>
+-inf
+<kbd is="sh">./float_print nan</kbd>
+nan
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make float_print'</span>
+</pre>
+<aside class="hint">
+<p>
+Some of the functions from the previous exercises may be useful.
+
+<p>
+You may find reading some of these papers helpful:
+
+<ul>
+<li><p>
+David Goldberg's
+<a href="http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">
+<q>What Every Computer Scientist Should Know About Floating-Point Numbers</q>
+</a>
+from ACM Computing Surveys, March 1991;
+
+<li><p>
+William D. Clinger's
+<a href="https://dl.acm.org/citation.cfm?id=93557">
+<q>How to Read Floating-Point Numbers Accurately</q> (doi:10.1145/93548.93557)
+</a>
+from the proceedings of the 1990 ACM Conference on
+Programming Language Design and Implementation; and
+
+<li><p>
+Guy L. Steele and Jon L. White's
+<a href="https://dl.acm.org/citation.cfm?id=93559">
+<q>How to Print Floating-Point Numbers Accurately</q> (doi:10.1145/93542.93559)</a>,
+also from the proceedings of the 1990 ACM Conference on
+Programming Language Design and Implementation.
+</p></li></p></li></p></li></ul>
+</p></p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You can assume the supplied <code>float</code> is not in
+<a href="https://en.wikipedia.org/wiki/Denormal_number">denormal</a> form.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to perform floating-point operations,
+or to use variables of type <code>float</code> or <code>double</code>.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>float_print</code>'s prototype (its return type and argument types).
+</p></li></p></li></p></li></p></li></ul>
+</aside>
+</p></p></p>

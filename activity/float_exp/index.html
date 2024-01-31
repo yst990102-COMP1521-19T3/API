@@ -1,0 +1,61 @@
+<h4>Reminder: Float Representation</h4>
+<figure class="text-center">
+<img class="img img-fluid p-2" src="{{activity_url}}float.png"/>
+</figure>
+<h4>Exercise Description</h4>
+
+{{ with_file("files.cp/float_exp.c", change_function="float_exp") }}
+
+<p>
+The function <code>float_exp</code> is given
+the bits of a <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">float</a> as type <code>uint32_t</code>.
+Add code so that it returns the exponent.
+<p>
+In other words return the contents of bits 23-30.
+
+
+<p>
+This function must be implemented only using bit operations and integer comparisons.
+<p>
+Do not remove the bias (subtract 127) from the exponent.
+<p>
+Once this functions is completed,
+you should get output like:
+
+<pre is="tty">
+<kbd is="sh">./float_exp -42</kbd>
+float_exp(-42) returned 0x84
+<kbd is="sh">./float_exp 3.14159</kbd>
+float_exp(3.14159012) returned 0x80
+<kbd is="sh">./float_exp -inf</kbd>
+float_exp(-inf) returned 0xff
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make float_exp'</span>
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+<b>float_exp</b> should return a value between 0 and 255 inclusive.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to perform floating-point operations,
+or to use variables of type <code>float</code> or <code>double</code>,
+or to use multiplication or division.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change <code>float_exp</code>' prototype (its return type and argument types).
+
+<li><p>
+<em>iff</em> stands for <q>if and only if</q>.
+</p></li></p></li></p></li></p></li></p></li></ul>
+</p></p></p></p></p></p>

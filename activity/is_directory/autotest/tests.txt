@@ -1,0 +1,14 @@
+max_cpu=10
+files=is_directory.c
+command=./is_directory
+shell=1
+
+0 command="mkdir -p test_directory;./is_directory test_directory"  expected_stdout="1\n"
+
+1 command="echo >test_file;./is_directory test_file"  expected_stdout="0\n"
+
+2 command="./is_directory non_existant_path"  expected_stdout="0\n"
+
+3 command="./is_directory /home/cs1521/public_html"  expected_stdout="1\n"
+
+4 command="./is_directory /etc/resolv.conf"  expected_stdout="0\n"

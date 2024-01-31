@@ -1,0 +1,51 @@
+<p>
+Write a C program, <code>create_binary_file</code>,
+which takes at least one argument: a filename,
+and subsequently, integers in the range 0…255 inclusive
+specifying byte values.
+It should create a file of the specified name,
+containing the specified bytes.
+For example:
+
+<pre is="tty">
+<kbd is="sh">./create_binary_file hello.txt 72 101 108 108 111 33 10</kbd>
+<kbd is="sh">cat hello.txt</kbd>
+Hello!
+<kbd is="sh">./create_binary_file count.binary 1 2 3 251 252 253 254 255</kbd>
+<kbd is="sh">./print_bytes count.binary</kbd>
+byte    0:   1 0x01
+byte    1:   2 0x02
+byte    2:   3 0x03
+byte    3: 251 0xfb
+byte    4: 252 0xfc
+byte    5: 253 0xfd
+byte    6: 254 0xfe
+byte    7: 255 0xff
+<kbd is="sh">./create_binary_file 4_bytes.binary 222 173 190 239</kbd>
+<kbd is="sh">./print_bytes  "%02X\n"' 4_bytes.binary</kbd>
+byte    0: 222 0xde
+byte    1: 173 0xad
+byte    2: 190 0xbe
+byte    3: 239 0xef
+</pre>
+<p>
+Your program should print a suitable error message
+if given the wrong number of arguments,
+or if the file can not be created.
+
+<aside class="hint">
+Use <cite>fopen(3)</cite> to create the file
+and <cite>fputc(3)</cite> to output to the file.
+If you need some help starting off,
+read this <a href="{{url_root}}code/files/index#create_file_fopen.c">example program</a>
+to see how to use these functions to create and write to a file.
+</aside>
+<aside class="hint">
+For this exercise,
+you can use the simple function <cite>atoi(3)</cite>
+to convert a null-terminated string to an <code>int</code>.
+In general, <cite>strtol(3)</cite> is a more useful function
+because it allows error handling —
+but this is not required for this exercise.
+</aside>
+</p></p>

@@ -1,0 +1,178 @@
+<h4>Floating-point Representation</h4>
+<p>
+Single-precision floating-point numbers
+that follow the IEEE 754 standard
+have an internal structure that looks like this:
+
+<figure class="text-center">
+<img class="img img-fluid p-2" src="{{activity_url}}float.png"/>
+</figure>
+<p>
+The value is determined as:
+\[
+    {-1}^{\text{sign}} \times \left(1 + \text{frac}\right) \times 2^{\text{exp} - 127}
+\]
+The 32 bits in each <code>float</code> are used as follows:
+
+<dl class="row">
+<dt class="col-3 text-right">
+<code>sign</code>
+<dd class="col-9"><p>
+is a single bit that indicates the number's sign.
+If set to 0, the number is positive;
+if set to 1, the number is negative.
+
+<dt class="col-3 text-right">
+<code>exp</code>
+<dd class="col-9"><p>
+is an unsigned 8-bit value (giving a range of \([0\cdots255]\))
+which is interpreted as a value in the range \([-127\cdots128]\)
+by subtracting 127 (the <q>bias</q>)
+from the stored 8-bit value.
+It gives a multiplier
+for the fraction part
+(<abbr>i.e.</abbr>, \( 2^{\text{exp}-127} \)).
+
+<dt class="col-3 text-right">
+<code>frac</code>
+<dd class="col-9"><p>
+is a value in the range \( [0\cdots1] \),
+determined using positional notation:
+\[
+    \frac{\text{bit}_{22}}{2^{1}}
+  + \frac{\text{bit}_{21}}{2^{2}}
+  + \frac{\text{bit}_{20}}{2^{3}}
+  + \cdots
+  + \frac{\text{bit}_{2}}{2^{21}}
+  + \frac{\text{bit}_{1}}{2^{22}}
+  + \frac{\text{bit}_{0}}{2^{23}}
+\]
+The overall value of the floating-point value
+is determined by adding 1 to the fraction:
+we assume that the "fraction" part
+is actually a value in the range \( [1\cdots2] \),
+but save bits by not explicitly storing
+the leading 1 bit.
+</p></dd></dt></p></dd></dt></p></dd></dt></dl>
+<p>
+For example:
+
+<pre>
+raw 32 bits:  01000000001000000000000000000000
+partitioned:  0 10000000 01000000000000000000000
+sign:         0, so positive
+exp:          10000000 = 128, so multiplier is 2<sup>128-127</sup> = 2<sup>1</sup>
+frac:         0×2<sup>-1</sup> + 1×2<sup>-2</sup> + ... = 0.25, but we need to add 1
+
+final value:  1.25 × 2<sup>1</sup> = 2.5
+</pre>
+<h4>Exercise Description</h4>
+{{ with_file("files.cp/float_bits.c", change_function="float_bits") }}
+
+<p>
+The function <code>float_bits</code> is given
+the bits of a <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">float</a> as type <code>uint32_t</code>.
+Add code so that it returns a <code>struct float_components</code>,
+containing the sign, exponent and fraction fields of the <code>struct</code>.
+
+<p>
+You also should add appropriate code to the functions
+<code>is_nan</code>,
+<code>is_positive_infinity</code>,
+<code>is_negative_infinity</code>, and
+<code>is_zero</code>.
+All four functions take
+a <code>struct float_components</code> as their argument,
+and return 0 or 1 depending on
+some property of the <code>float</code> it represents:
+
+<ul>
+<li><p>
+<code>is_nan</code> returns 1
+iff the <code>struct float_components</code> corresponds to
+the not-a-number value, <abbr>NaN</abbr>, and 0 otherwise;
+
+<li><p>
+<code>is_positive_infinity</code> returns 1
+iff the <code>struct float_components</code> corresponds to
+the positive infinity, <code>inf</code>, and 0 otherwise;
+
+<li><p>
+<code>is_negative_infinity</code> returns 1
+iff the <code>struct float_components</code> corresponds to
+the negative infinity, <code>-inf</code>, and 0 otherwise; and
+
+<li><p>
+<code>is_zero</code> returns 1
+iff the <code>struct float_components</code> corresponds to
+either positive or negative zero.
+</p></li></p></li></p></li></p></li></ul>
+<p>
+These function must be implemented only using bit operations and integer comparisons.
+
+<p>
+Once these functions are completed,
+you should get output like:
+
+<pre is="tty">
+<kbd is="sh">./float_bits -42</kbd>
+float_bits(-42) returned
+sign=0x1
+exponent=0x84
+fraction=0x280000
+is_nan returned 0
+is_positive_infinity returned 0
+is_negative_infinity returned 0
+is_zero returned 0
+<kbd is="sh">./float_bits 3.14159</kbd>
+float_bits(3.14159012) returned
+sign=0x0
+exponent=0x80
+fraction=0x490fd0
+is_nan returned 0
+is_positive_infinity returned 0
+is_negative_infinity returned 0
+is_zero returned 0
+<kbd is="sh">./float_bits -inf</kbd>
+float_bits(-inf) returned
+sign=0x1
+exponent=0xff
+fraction=0x000000
+is_nan returned 0
+is_positive_infinity returned 0
+is_negative_infinity returned 1
+is_zero returned 0
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make float_bits'</span>
+</pre>
+<aside class="hint">
+<p>
+To extract the three components of the <code>float</code>,
+use the bitwise operators <code>&amp;</code> and <code>&gt;&gt;</code>.
+</p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted
+   to call any functions from the C library,
+or to perform floating-point operations,
+or to use variables of type <code>float</code> or <code>double</code>,
+or to use multiplication or division.
+
+<li><p>
+You are not permitted
+   to change the <code>main</code> function you have been given,
+or to change the type <code>struct float_components</code> provided,
+or to change <code>float_bits</code>' prototype (its return type and argument types).
+
+<li><p>
+<em>iff</em> stands for <q>if and only if</q>.
+</p></li></p></li></p></li></p></li></ul>
+</aside>
+</p></p></p></p></p></p></p></p>

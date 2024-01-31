@@ -1,0 +1,47 @@
+First read the code you have been given in <a href="{{activity_url}}files.ln/web_server.c">web_server.c</a>
+<p>
+It implements a very simple webserver which you can compile and run:
+<pre is="tty">
+<kbd is="sh">dcc web_server.c serve_web_page.c -o web_server</kbd>
+<kbd is="sh">./web_server</kbd>
+
+From your web browser try one of these URLs
+http://localhost:32517/example.html
+http://localhost:32517/bird.html
+
+</pre>
+
+Note <code>localhost</code> is effectively a networking synonym for the current machine so you web browser
+will have to be running on the same machine for the above URLs to work.
+<p>
+If you access one of these URLs, they'll tell you that function <code>serve_web_page</code> is unimplemented.
+Your task in this exercise is to implement this function:
+
+{{ with_file("files.cp/serve_web_page.c", change_function="serve_web_page") }}
+
+If  the requested file exists a <code>serve_web_page</code> should write
+a 200 header to <code>client_stream</code> followed by the file contents.
+<p>
+If  the request file does not exists<code>serve_web_page</code> should write
+a 404 header to  <code>client_stream</code> (and nothing else).
+<p>
+
+When you've done this the URL for example.html should show a very simple web page in your browser and
+and the one for bird.html should show a flying bird.
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make serve_web_page'</span>
+</pre>
+<aside class="hint">
+<a href="{{activity_url}}files.ln/serve_web_page.h">serve_web_page.h</a> contains #defines for the 2 different headers you must write back to the client.
+</aside>
+<aside class="note">
+You may define and call your own functions if you wish.
+<p>
+You are not permitted
+   to change the functions in <code>web_server.c</code>   you have been given,
+or to change <code>serve_web_page</code>'s prototype (its return type and argument types).
+
+</p></aside>
+</p></p></p></p></p>

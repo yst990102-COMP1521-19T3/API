@@ -1,0 +1,60 @@
+You have been given <a href="{{activity_url}}files.cp/line_char.s"><code>line_char.s</code></a>,
+a MIPS assembler program that reads a line of input then reads an integer, <em>n</em>, then prints a '?'.
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f line_char.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>Hello</kbd>
+Enter a position: <kbd>1</kbd>
+Character is: ?
+</pre>
+
+Add code to <code>line_char.s</code>
+to make it equivalent to this C program which reads a line and prints the character
+in  position <em>n</em>:
+
+{{ include_code("files.ln/line_char.c") }}
+
+In other words change the code you given from printing a '?' to printing the
+first character of the line that has been read.
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f line_char.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>abcdefghijklmnopqrstuvwxyz</kbd>
+Enter a position: <kbd>0</kbd>
+Character is: a
+<kbd is="sh">1521 spim -f line_char.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>abcdefghijklmnopqrstuvwxyz</kbd>
+Enter a position: <kbd>13</kbd>
+Character is: n
+<kbd is="sh">1521 spim -f line_char.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>Hello Andrew!</kbd>
+Enter a position: <kbd>12</kbd>
+Character is: !
+<kbd is="sh">1521 spim -f line_char.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a line of input: <kbd>i MIPS you</kbd>
+Enter a position: <kbd>3</kbd>
+Character is: I
+</pre>
+<aside class="hint">
+Only a few instructions are needed.
+</aside>
+<aside class="note">
+<p>
+You can assume a line can be read.
+<p>
+You can assume the line will contain at most 256 characters.
+<p>
+You can assume a positive integer <b>n</b> can be read.
+<p>
+You can assume the line read has at least <b>n + 1</b> characters.
+
+</p></p></p></p></aside>
+</p>

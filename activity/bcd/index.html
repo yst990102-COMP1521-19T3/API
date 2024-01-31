@@ -1,0 +1,45 @@
+{{ copy_a_file("files/bcd.c", change_function="bcd") }}
+
+<p>
+Add code to the function <code>bcd</code> so that,
+given a 2 digit <a href="https://en.wikipedia.org/wiki/Binary-coded_decimal">Binary-Coded Decimal</a> (<abbr>BCD</abbr>) value,
+it returns the corresponding integer.
+
+<p>
+In binary-coded decimal format,
+each byte holds 1 decimal value (0 to 9),
+so each byte contains 1 decimal digit.
+For example:
+
+<pre is="tty">
+<kbd is="sh">./bcd 7</kbd>
+7
+<kbd is="sh">./bcd 258</kbd>             <span class="comment"># 258 == 0x0102</span>
+12
+<kbd is="sh">./bcd 1026</kbd>            <span class="comment"># 1026 == 0x0402</span>
+42
+</pre>
+<aside class="hint">
+<p>
+Use the bitwise operators
+<code>&amp;</code> and <code>&gt;&gt;</code>
+to extract each <abbr>BCD</abbr> digit.
+</p></aside>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+<code>bcd</code> should return an integer value between 0 and 99 inclusive.
+
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted to call any functions from the C library.
+
+<li><p>
+You are not permitted
+to change the <code>main</code> function you have been given, or
+to change <code>bcd</code>'s prototype (its return type and argument types).
+</p></li></p></li></p></li></p></li></ul>
+</aside>
+</p></p>

@@ -1,0 +1,16 @@
+# generated from tests.py by /home/cs1521/public_html/19T3/scripts/autotest_update_from_solution
+
+max_cpu=30
+command=1521 spim -f palindrome.s
+files=palindrome.s
+
+
+0 stdin="kayak\n" description="kayak" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+1 stdin="canoe\n" description="canoe" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+2 stdin="repaper\n" description="repaper" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+3 stdin="repacker\n" description="repacker" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+4 stdin="0123210\n" description="0123210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+5 stdin="0133210\n" description="0133210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+6 stdin="0123310\n" description="0123310" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"
+7 stdin="01233210\n" description="01233210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: palindrome\n"
+8 stdin="01234210\n" description="01234210" expected_stdout="Loaded: /home/cs1521/share/spim/exceptions.s\nEnter a line of input: not palindrome\n"

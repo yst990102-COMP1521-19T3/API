@@ -1,0 +1,6 @@
+objectives = [
+	"to explore input/output functions from the stdio library",
+	"to explore the Unix Programmer's Manual",
+	"to use the <code>make</code>, <code>autotest</code> and <code>time</code> commands",
+	"to perform simple performance analysis",
+]

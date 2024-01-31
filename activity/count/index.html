@@ -1,0 +1,49 @@
+<p>
+In the files for this lab,
+you have been given a MIPS assembler program <code>count.s</code>,
+which reads a number and prints 42:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f count.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter a number: <kbd>13</kbd>
+42
+</pre>
+<p>
+Add code to <code>count.s</code>
+to make it equivalent to this C program:
+
+{{ include_code("files.cp/count.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f count.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter number: <kbd>4</kbd>
+1
+2
+3
+4
+<kbd is="sh">1521 spim -f count.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter number: <kbd>10</kbd>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre>
+<aside class="hint">
+<p>
+Make sure you understand the <a href="{{url_root}}code/mips_control/#print10.s">print10.s</a> lecture example.
+<p>
+Started by choosing which register you will use for each variable.
+</p></p></aside>
+</p></p></p>

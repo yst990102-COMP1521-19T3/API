@@ -1,0 +1,15 @@
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+files=is_diary_public.c
+command=./is_diary_public
+shell=1
+
+
+0 command="echo >$HOME/.diary; chmod 644 $HOME/.diary; ./is_diary_public" expected_stdout="1\n"
+1 command="echo >$HOME/.diary; chmod 600 $HOME/.diary; ./is_diary_public" expected_stdout="0\n"
+2 command="rm $HOME/.diary; ./is_diary_public" expected_stdout="0\n"
+3 command="mkdir -p d; HOME=$(pwd)/d; echo >$HOME/.diary; chmod 666 $HOME/.diary; ./is_diary_public" expected_stdout="1\n"
+4 command="mkdir -p d; HOME=$(pwd)/d; echo >$HOME/.diary; chmod 663 $HOME/.diary; ./is_diary_public" expected_stdout="0\n"
+5 command="mkdir -p d; HOME=$(pwd)/d; echo >$HOME/.diary; chmod 444 $HOME/.diary; ./is_diary_public" expected_stdout="1\n"

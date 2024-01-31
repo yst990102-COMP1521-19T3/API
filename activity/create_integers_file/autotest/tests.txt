@@ -1,0 +1,8 @@
+max_cpu=10
+files=create_integers_file.c
+command=./create_integers_file
+
+shell=1
+test0 command="rm -f numbers*.txt;./numbers numbers1.txt 10 20"  expected_file_name=numbers1.txt
+test1 command="rm -f numbers*.txt;./numbers numbers2.txt 42 42"  expected_file_name=numbers2.txt
+test2 command="rm -f numbers*.txt;./numbers numbers3.txt 99 127" expected_file_name=numbers3.txt

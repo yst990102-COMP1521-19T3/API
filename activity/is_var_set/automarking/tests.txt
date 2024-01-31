@@ -1,0 +1,17 @@
+max_cpu=30
+ignore_case=1
+ignore_white_space=1
+ignore_blank_lines=1
+files=is_var_set.c
+command=./is_var_set
+shell=1
+
+0 command="./is_var_set PATH" expected_stdout="1\n"
+
+1 command="./is_var_set PATH1" expected_stdout="0\n"
+
+2 command="Z=hello ./is_var_set Z" expected_stdout="1\n"
+
+3 command="Y='' ./is_var_set Y" expected_stdout="0\n"
+
+4 command="./is_var_set XXXXX" expected_stdout="0\n"

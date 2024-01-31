@@ -1,0 +1,34 @@
+<p>
+In the files for this lab,
+you have been given <a href="{{activity_url}}files.cp/factorial.s"><code>factorial.s</code></a>.
+Add code to make it equivalent to this C program:
+
+{{ include_code("files.ln/factorial.c") }}
+
+<p>
+For example:
+
+<pre is="tty">
+<kbd is="sh">1521 spim -f factorial.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter n: <kbd>5</kbd>
+5! = 120
+<kbd is="sh">1521 spim -f factorial.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter n: <kbd>7</kbd>
+7! = 5040
+<kbd is="sh">1521 spim -f factorial.s</kbd>
+Loaded: /home/cs1521/share/spim/exceptions.s
+Enter n: <kbd>1</kbd>
+1! = 1
+</pre>
+<aside class="note">
+<ul class="list-unstyled">
+<li><p>
+You must implement the code in <code>factorial.c</code>
+as a recursive function.
+<li><p>
+You may not use another algorithm to calculate or print factorials.
+</p></li></p></li></ul>
+</aside>
+</p></p>

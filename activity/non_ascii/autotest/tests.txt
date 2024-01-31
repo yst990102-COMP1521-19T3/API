@@ -1,0 +1,20 @@
+max_cpu=10
+files=non_ascii.c
+command=./non_ascii
+shell=1
+
+0 command="echo hello >test; ./non_ascii test" expected_stdout="test is all ASCII\n"
+
+1 command="echo -e 'a\nbc\ndef\nghij\nklmno\npqrs\ntuv\nwx\ny\nz' >test; ./non_ascii test" expected_stdout="test is all ASCII\n"
+
+2 command="./non_ascii file.c" expected_stdout="file.c is all ASCII\n"
+
+3 command="echo -e '\x82' >test; ./non_ascii test" expected_stdout="test: byte 0 is non-ASCII\n"
+
+4 command="echo -e 'hello\xBAworld' >test; ./non_ascii test" expected_stdout="test: byte 5 is non-ASCII\n"
+
+5 command="./non_ascii binary1" expected_stdout="binary1: byte 128 is non-ASCII\n"
+
+6 command="./non_ascii binary2" expected_stdout="binary2: byte 40 is non-ASCII\n"
+
+7 command="./non_ascii /dev/null" expected_stdout="/dev/null is all ASCII\n"

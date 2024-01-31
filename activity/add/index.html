@@ -1,0 +1,52 @@
+{{ with_file("files.cp/add.c", change_function="add") }}
+
+<p>
+The function <code>add</code> is given the operands for a MIPS <b>add</b> instruction .
+Add code so that it returns the opcode for that instruction.
+Reminder the bit pattern for MIPS add instruction is:
+<p>
+{% set instruction_set = [
+    ('add', 'add $d, $s, $t', 'd = s + t', '0x20', '000000ssssstttttddddd00000100000'),
+] %}
+
+<table class="table table-sm table-striped">
+<thead>
+<tr><th style="width:20%;">Assembler
+    <th>Description
+    <th>C
+    <th>Bit Pattern
+</th></th></th></th></tr></thead>
+<tbody>
+{% for (description, assembler, C, op_code, bit_pattern) in instruction_set %}
+<tr><th scope="row"><code>{{assembler}}</code>
+<td>{{description}}
+    <td>{{C|safe}}
+    <td><code>{{bit_pattern}}</code>
+{% endfor %}
+</td></td></td></th></tr></tbody>
+</table>
+<p>
+This is how your code should behave
+
+<pre is="tty">
+<kbd is="sh">./add 17 19 3</kbd>
+add(17, 19, -3) returned  0x02638820
+<kbd is="sh">./add 9 27 12</kbd>
+add(9, 27, 42) returned 0x036c4820
+</pre>
+<p>
+Use <cite>make(1)</cite> to build your code:
+<pre is="tty">
+<kbd is="sh">make</kbd>    <span class="comment"># or 'make add'</span>
+</pre>
+<h6>Assumptions/Limitations/Clarifications</h6>
+<ul class="list-unstyled">
+<li><p>
+You may define and call your own functions if you wish.
+
+<li><p>
+You are not permitted   to change the <code>main</code> function you have been given,
+or to change <code>add</code>' prototype (its return type and argument types).
+
+</p></li></p></li></ul>
+</p></p></p></p>
